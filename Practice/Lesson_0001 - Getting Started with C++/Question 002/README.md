@@ -12,9 +12,9 @@ Press any key to continue . . .
 ==========================================================
 |               Student Details as below:                |
 ==========================================================
-| Name      : Test                                    |
-| Age       : 23                                      |
-| Gender    : Female                                  |
-| Address   : Selangor                                |
-| E-Wallet  : RM 25.77                             |
+| Name      : Test                                       |
+| Age       : 23                                         |
+| Gender    : Female                                     |
+| Address   : Selangor                                   |
+| E-Wallet  : RM 25.77                                   |
 ==========================================================
