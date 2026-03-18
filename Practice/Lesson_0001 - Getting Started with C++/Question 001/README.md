@@ -1,5 +1,6 @@
 # Write a program to display the following output.
 
+```
 Student Name      : Mien May
 Student Gender    : Female
 Student Age       : 23
@@ -12,3 +13,4 @@ Student details as below:
 ------------------------------------------------------------
 | Mien May  | 23  | Female | Selangor | RM23.12         |
 ------------------------------------------------------------
+```
