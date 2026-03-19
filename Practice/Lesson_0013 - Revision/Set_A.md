@@ -74,7 +74,7 @@ struct Patient {
 ## Question 4
 **Question:** Write C++ code to insert a new node with info **15** between **39** and **52**.
 
-**Answer:** Insert after node with value **39**
+**Answer:** 
 
 ```cpp
 #include <iostream>
@@ -135,7 +135,7 @@ int main() {
 ## Question 5
 **Question:** Write C++ code to delete the node with info **52**.
 
-**Answer:** Delete a middle node
+**Answer:**
 
 ```cpp
 #include <iostream>
