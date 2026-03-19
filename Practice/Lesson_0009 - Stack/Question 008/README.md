@@ -97,10 +97,54 @@ The objective of the puzzle is to **move the entire stack of disks from one rod 
 
 ---
 
-# Final Result
+## Final Result
 
 - Tower A: empty  
 - Tower B: empty  
 - Tower C: 3, 2, 1  
 
 All disks have been successfully moved from **Tower A to Tower C** following the rules of the Tower of Hanoi.
+
+
+
+---
+
+
+# Sample Output (Input = 3)
+```
+Enter the number of disks : 3
+
+Tower-1-> 3 2 1
+Tower-2->
+Tower-3->
+
+Tower-1-> 3 2
+Tower-2->
+Tower-3-> 1
+
+Tower-1-> 3
+Tower-2-> 2
+Tower-3-> 1
+
+Tower-1-> 3
+Tower-2-> 2 1
+Tower-3->
+
+Tower-1->
+Tower-2-> 2 1
+Tower-3-> 3
+
+Tower-1-> 1
+Tower-2-> 2
+Tower-3-> 3
+
+Tower-1-> 1
+Tower-2->
+Tower-3-> 3 2
+
+Tower-1->
+Tower-2->
+Tower-3-> 3 2 1
+
+
+
