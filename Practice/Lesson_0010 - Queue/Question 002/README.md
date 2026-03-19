@@ -12,3 +12,10 @@ Original Queue:
 
 After moveNthFront(3):
 34 5 11 67 43 55
+```
+
+# Explanation
+ - The function moveNthFront(N) moves the N-th element of a queue to the front while maintaining the relative order of the remaining elements.
+ - The algorithm temporarily removes the first N-1 elements and stores them.
+ - Then the N-th element is removed and inserted at the front of the queue.
+ - After that, the stored elements and the remaining elements are reinserted back into the queue in their original order.
