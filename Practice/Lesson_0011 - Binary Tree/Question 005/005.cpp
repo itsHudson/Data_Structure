@@ -37,22 +37,22 @@ struct TreeNode
 
 TreeNode* CreateNewNode(string NewAnimalName, double NewAnimalWeight)
 {
-    TreeNode* NewNode = new TreeNode;
+    TreeNode* NewTreeNode = new TreeNode;
     // Dynamically create a new tree node
 
-    NewNode->AnimalName = NewAnimalName;
+    NewTreeNode->AnimalName = NewAnimalName;
     // Store the given animal name in the node
 
-    NewNode->AnimalWeight = NewAnimalWeight;
+    NewTreeNode->AnimalWeight = NewAnimalWeight;
     // Store the given animal weight in the node
 
-    NewNode->LeftChild = NULL;
+    NewTreeNode->LeftChild = NULL;
     // Initialize left child as NULL
 
-    NewNode->RightChild = NULL;
+    NewTreeNode->RightChild = NULL;
     // Initialize right child as NULL
 
-    return NewNode;
+    return NewTreeNode;
     // Return the address of the new node
 }
 
@@ -185,20 +185,20 @@ int GetTreeHeight(TreeNode* RootNode)
         // Height is defined as number of edges
     }
 
-    int LeftHeight = GetTreeHeight(RootNode->LeftChild);
+    int LeftSubtreeHeight = GetTreeHeight(RootNode->LeftChild);
     // Get height of left subtree
 
-    int RightHeight = GetTreeHeight(RootNode->RightChild);
+    int RightSubtreeHeight = GetTreeHeight(RootNode->RightChild);
     // Get height of right subtree
 
-    if (LeftHeight > RightHeight)
+    if (LeftSubtreeHeight > RightSubtreeHeight)
     {
-        return LeftHeight + 1;
+        return LeftSubtreeHeight + 1;
         // Return left height if it is larger
     }
     else
     {
-        return RightHeight + 1;
+        return RightSubtreeHeight + 1;
         // Return right height if it is larger
     }
 }
