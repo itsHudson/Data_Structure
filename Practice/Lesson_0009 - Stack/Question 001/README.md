@@ -14,13 +14,12 @@ push('TP02');
 ```
 
 # Draw a step-by-step diagram to describe the above operations and determine the final answer in the stack after all operations are executed.
-## Step 1
-push("TP01")
-
-Stack:
-
-Top  
-TP01
+## Step 1: push("TP01")
+ - Stack:
+   ```
+   Top
+   TP01
+   ```
 
 ---
 
