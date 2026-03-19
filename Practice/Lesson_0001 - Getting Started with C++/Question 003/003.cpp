@@ -22,8 +22,11 @@ int main() {
     // Purpose : Store the input time components
     // ==========================================================
 
-    int HH, MM, SS;   // Variables to store hours, minutes, and seconds
-    char c1, c2;      // Variables to store the ':' separators from input
+    int HoursValue, MinutesValue, SecondsValue;   
+    // Variables to store hours, minutes, and seconds
+
+    char FirstSeparatorCharacter, SecondSeparatorCharacter;      
+    // Variables to store the ':' separators from input
 
 
     // ==========================================================
@@ -32,19 +35,20 @@ int main() {
     //           (HH:MM:SS) is entered by the user
     // ==========================================================
 
-    while (true) {    // Infinite loop that continues until valid input is given
+    while (true) {    
+        // Infinite loop that continues until valid input is given
 
         cout << "Please enter your elapsed time (in HH:MM:SS format) = ";
         // Prompt the user to enter time in HH:MM:SS format
 
-        cin >> HH >> c1 >> MM >> c2 >> SS;
+        cin >> HoursValue >> FirstSeparatorCharacter >> MinutesValue >> SecondSeparatorCharacter >> SecondsValue;
         // Read user input
         // Example input: 02:15:30
-        // HH = 2
-        // c1 = ':'
-        // MM = 15
-        // c2 = ':'
-        // SS = 30
+        // HoursValue = 2
+        // FirstSeparatorCharacter = ':'
+        // MinutesValue = 15
+        // SecondSeparatorCharacter = ':'
+        // SecondsValue = 30
 
 
         // ======================================================
@@ -52,10 +56,10 @@ int main() {
         // Purpose : Ensure the user enters the correct HH:MM:SS format
         // ======================================================
 
-        if (cin.fail() || c1 != ':' || c2 != ':') {
+        if (cin.fail() || FirstSeparatorCharacter != ':' || SecondSeparatorCharacter != ':') {
             // cin.fail() checks if input extraction failed (e.g. letters instead of numbers)
-            // c1 != ':' ensures the first separator is ':'
-            // c2 != ':' ensures the second separator is ':'
+            // FirstSeparatorCharacter != ':' ensures the first separator is ':'
+            // SecondSeparatorCharacter != ':' ensures the second separator is ':'
 
             cin.clear();
             // Reset the error state of the input stream
@@ -76,9 +80,12 @@ int main() {
         // Purpose : Ensure the time values are within valid limits
         // ======================================================
 
-        if (HH < 0 || HH > 23 ||     // Hours must be between 0 and 23
-            MM < 0 || MM > 59 ||     // Minutes must be between 0 and 59
-            SS < 0 || SS > 59) {     // Seconds must be between 0 and 59
+        if (HoursValue < 0 || HoursValue > 23 ||         
+            MinutesValue < 0 || MinutesValue > 59 ||     
+            SecondsValue < 0 || SecondsValue > 59) {     
+            // Hours must be between 0 and 23
+            // Minutes must be between 0 and 59
+            // Seconds must be between 0 and 59
 
             cout << "Invalid input!" << endl;
             // Inform the user that the values are out of valid range
@@ -103,9 +110,9 @@ int main() {
     // Purpose : Convert HH:MM:SS format into total seconds
     // ==========================================================
 
-    int seconds = HH * 3600 + MM * 60 + SS;
-    // Convert hours into seconds (HH × 3600)
-    // Convert minutes into seconds (MM × 60)
+    int TotalElapsedSeconds = HoursValue * 3600 + MinutesValue * 60 + SecondsValue;
+    // Convert hours into seconds (HoursValue × 3600)
+    // Convert minutes into seconds (MinutesValue × 60)
     // Add remaining seconds
 
 
@@ -114,7 +121,7 @@ int main() {
     // Purpose : Display the calculated total seconds
     // ==========================================================
 
-    cout << "Elapsed time in seconds = " << seconds << " seconds." << endl;
+    cout << "Elapsed time in seconds = " << TotalElapsedSeconds << " seconds." << endl;
     // Print the converted time in seconds
 
 
@@ -123,5 +130,6 @@ int main() {
     // Purpose : End the program successfully
     // ==========================================================
 
-    return 0;   // Return 0 indicates successful program completion
+    return 0;   
+    // Return 0 indicates successful program completion
 }
