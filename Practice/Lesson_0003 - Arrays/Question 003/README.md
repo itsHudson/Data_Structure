@@ -2,6 +2,13 @@
 - Using the Iterative binary search
 
 ```text
-linear search: 
-9 is NOT found!
-Time taken by linear search: 0.003 milliseconds
+Binary Search Program
+Enter number to search: 70
+70 is found at index 6
+Time taken by binary search: 0.001 milliseconds
+
+
+Binary Search Program
+Enter number to search: 55
+55 is NOT found!
+Time taken by binary search: 0.002 milliseconds
