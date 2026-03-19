@@ -23,114 +23,105 @@ push('TP02');
 
 ---
 
-## Step 2
-push("TP02")
-
-Stack:
-
-Top  
-TP02  
-TP01
-
----
-
-## Step 3
-push("TP03")
-
-Stack:
-
-Top  
-TP03  
-TP02  
-TP01
+## Step 2: push("TP02")
+ - Stack:
+   ```
+   Top
+   TP02
+   TP01
+   ```
 
 ---
 
-## Step 4
-pop()
-
-Removed: TP03
-
-Stack:
-
-Top  
-TP02  
-TP01
+## Step 3: push("TP03")
+ - Stack:
+   ```
+   Top  
+   TP03  
+   TP02  
+   TP01
+   ```
 
 ---
 
-## Step 5
-pop()
+## Step 4: pop()
+ - Removed: TP03
 
-Removed: TP02
-
-Stack:
-
-Top  
-TP01
-
----
-
-## Step 6
-push("TP04")
-
-Stack:
-
-Top  
-TP04  
-TP01
+- Stack:
+  ```
+  Top  
+  TP02  
+  TP01
+  ```
 
 ---
 
-## Step 7
-push("TP05")
+## Step 5: pop()
+ - Removed: TP02
 
-Stack:
-
-Top  
-TP05  
-TP04  
-TP01
-
----
-
-## Step 8
-push("TP03")
-
-Stack:
-
-Top  
-TP03  
-TP05  
-TP04  
-TP01
+ - Stack:
+   ```
+   Top  
+   TP01
+   ```
 
 ---
 
-## Step 9
-pop()
-
-Removed: TP03
-
-Stack:
-
-Top  
-TP05  
-TP04  
-TP01
+## Step 6: push("TP04")
+ - Stack:
+   ```
+   Top  
+   TP04  
+   TP01
+   ```
 
 ---
 
-## Step 10
-push("TP02")
+## Step 7: push("TP05")
+- Stack:
+  ```
+  Top  
+  TP05  
+  TP04  
+  TP01
+  ```
 
-Stack:
+---
 
-Top  
-TP02  
-TP05  
-TP04  
-TP01
+## Step 8: push("TP03")
+ - Stack:
+   ```
+   Top  
+   TP03  
+   TP05  
+   TP04  
+   TP01
+   ```
+
+---
+
+## Step 9: pop()
+ - Removed: TP03
+
+ - Stack:
+   ```
+   Top  
+   TP05  
+   TP04  
+   TP01
+   ```
+
+---
+
+## Step 10: push("TP02")
+ - Stack:
+   ```
+   Top  
+   TP02  
+   TP05  
+   TP04  
+   TP01
+   ```
 
 ---
 
