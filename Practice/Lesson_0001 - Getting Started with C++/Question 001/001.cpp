@@ -22,9 +22,14 @@ int main() {
     // Purpose : Store student information collected from user
     // ==========================================================
 
-    string name, gender, address;  // Variables to store student name, gender, and home address
-    int age;                       // Variable to store student's age
-    double ewallet;                // Variable to store student's e-wallet balance
+    string StudentName, StudentGender, StudentHomeAddress;  
+    // Variables to store student name, gender, and home address
+
+    int StudentAge;                       
+    // Variable to store student's age
+
+    double StudentEWalletAmount;          
+    // Variable to store student's e-wallet balance
 
 
     // ==========================================================
@@ -35,15 +40,15 @@ int main() {
     cout << left << setw(30) << "Student Name" << ":"; 
     // Display label "Student Name" aligned to the left with width of 30 characters
 
-    getline(cin, name); 
-    // Read full line input from the user and store in variable 'name'
+    getline(cin, StudentName); 
+    // Read full line input from the user and store in variable 'StudentName'
     // getline() allows spaces to be included in the input
 
 
     cout << left << setw(30) << "Student Gender" << ":"; 
     // Display label "Student Gender" with formatted alignment
 
-    cin >> gender; 
+    cin >> StudentGender; 
     // Read user input for gender
     // cin >> reads only a single word (stops at whitespace)
 
@@ -51,8 +56,8 @@ int main() {
     cout << left << setw(30) << "Student Age" << ":"; 
     // Display label for student age
 
-    cin >> age; 
-    // Read an integer value from the user and store in variable 'age'
+    cin >> StudentAge; 
+    // Read an integer value from the user and store in variable 'StudentAge'
 
 
     cout << left << setw(30) << "Student Home Address" << ":"; 
@@ -62,14 +67,14 @@ int main() {
     // Clear the leftover newline character in the input buffer
     // This is required before using getline() after cin >>
 
-    getline(cin, address); 
+    getline(cin, StudentHomeAddress); 
     // Read the full home address including spaces
 
 
     cout << left << setw(30) << "E-wallet Amount" << ":RM "; 
     // Display label for e-wallet amount with RM currency prefix
 
-    cin >> ewallet; 
+    cin >> StudentEWalletAmount; 
     // Read the e-wallet balance entered by the user
 
 
@@ -91,7 +96,7 @@ int main() {
     // Purpose : Print a horizontal line using '=' symbols
     // ==========================================================
 
-    for (int i = 0; i <= 101; i++) 
+    for (int SeparatorIndex = 0; SeparatorIndex <= 101; SeparatorIndex++) 
         // Loop runs 102 times to create a long separator line
 
         cout << "=";      
@@ -132,7 +137,7 @@ int main() {
     // Purpose : Print another horizontal line under the table header
     // ==========================================================
 
-    for (int i = 0; i <= 101; i++)
+    for (int SeparatorIndex = 0; SeparatorIndex <= 101; SeparatorIndex++)
         // Repeat loop to print another separator line
 
         cout << "=";
@@ -146,16 +151,16 @@ int main() {
     // Purpose : Display the student's information in table format
     // ==========================================================
 
-    cout << left << setw(20) << ("| " + name)
+    cout << left << setw(20) << ("| " + StudentName)
          // Display student name with table border prefix
 
-         << setw(20) << ("| " + to_string(age))
+         << setw(20) << ("| " + to_string(StudentAge))
          // Convert integer age to string before concatenation
 
-         << setw(20) << ("| " + gender)
+         << setw(20) << ("| " + StudentGender)
          // Display student gender
 
-         << setw(20) << ("| " + address)
+         << setw(20) << ("| " + StudentHomeAddress)
          // Display student home address
 
 
@@ -168,7 +173,7 @@ int main() {
          << setprecision(2) 
          // Display the number with 2 decimal places
 
-         << setw(16) << ewallet
+         << setw(16) << StudentEWalletAmount
          // Set width for alignment of e-wallet amount
 
          << "|" << endl;
@@ -181,7 +186,7 @@ int main() {
     // Purpose : Print closing line for the table
     // ==========================================================
 
-    for (int i = 0; i <= 101; i++)
+    for (int SeparatorIndex = 0; SeparatorIndex <= 101; SeparatorIndex++)
         // Loop prints final separator line
 
         cout << "=";
