@@ -1,207 +1,160 @@
 // ==========================================================
 // CATEGORY: Header Files
-// Purpose : Import libraries needed for input/output and
-//           time measurement using clock()
+// Purpose : Import libraries for input/output and timing
 // ==========================================================
 
-#include <iostream>   // Allows use of cout for output
-#include <ctime>      // Allows use of clock() for timing
+#include <iostream>
+#include <chrono>
 
-using namespace std;  // Allows writing cout instead of std::cout
-
-
-// ==========================================================
-// CATEGORY: Function Prototype
-// Purpose : Tell the compiler this function exists
-// ==========================================================
-
-void print_array(int billy[], int size);
-// Function to display all array elements
-
+using namespace std;
+using namespace std::chrono;
 
 
 // ==========================================================
-// CATEGORY: Main Function
-// Purpose : Compare Bubble Sort and Insertion Sort timing
-//           using ctime library
+// FUNCTION PROTOTYPES
+// ==========================================================
+
+void print_array(int array[], int size);
+void bubble_sort(int array[], int size);
+void insertion_sort(int array[], int size);
+
+
+
+// ==========================================================
+// MAIN FUNCTION
 // ==========================================================
 
 int main() {
 
-    int billy[5] = {4, 2, 1, 3, 5};
-    // Original array to be sorted
+    int billy[] = {4, 2, 1, 3, 5};
+    int size = sizeof(billy) / sizeof(billy[0]);
 
-    int i, iteration, size = sizeof(billy) / sizeof(billy[0]), temp;
-    // i         → loop counter
-    // iteration → outer loop counter for bubble sort
-    // size      → number of elements in array
-    // temp      → temporary storage for swapping
-
-    clock_t start, end;
-    // Variables used to store start and end time
+    int bubbleArray[5];
+    int insertionArray[5];
 
 
     // ======================================================
-    // CATEGORY: Bubble Sort Section
+    // Copy original array so both algorithms start equally
     // ======================================================
 
-    cout << "Pre bubble sort array: " << endl;
-    // Display label before sorting
-
-    print_array(billy, size);
-    // Print original array
-
-    start = clock();
-    // Record start time before bubble sort begins
-
-
-    // Bubble Sort Algorithm
-    for (iteration = 0; iteration < size - 1; iteration++) {
-        // Outer loop controls number of passes
-
-        for (i = 0; i < size - 1 - iteration; i++) {
-            // Inner loop compares adjacent elements
-
-            if (billy[i] > billy[i + 1]) {
-                // Swap if current element is bigger than next element
-
-                temp = billy[i];
-                // Store current element temporarily
-
-                billy[i] = billy[i + 1];
-                // Move next element into current position
-
-                billy[i + 1] = temp;
-                // Put stored value into next position
-            }
-        }
+    for(int i = 0; i < size; i++){
+        bubbleArray[i] = billy[i];
+        insertionArray[i] = billy[i];
     }
 
-    end = clock();
-    // Record end time after bubble sort finishes
 
+    // ======================================================
+    // BUBBLE SORT SECTION
+    // ======================================================
 
-    cout << "Post bubble sort array: " << endl;
-    // Display label after sorting
-
+    cout << "Original Array: ";
     print_array(billy, size);
-    // Print sorted array
 
+    auto start = high_resolution_clock::now();
 
-    double time_taken_bubble = double(end - start) / CLOCKS_PER_SEC * 1000;
-    // Convert elapsed time into milliseconds
+    bubble_sort(bubbleArray, size);
 
-    cout << "Bubble sort time: " << time_taken_bubble << " milliseconds" << endl;
-    // Display bubble sort execution time
+    auto end = high_resolution_clock::now();
 
+    auto durationBubble = duration_cast<microseconds>(end - start);
 
+    cout << "\nBubble Sort Result: ";
+    print_array(bubbleArray, size);
 
-    // ======================================================
-    // CATEGORY: Reset Array for Insertion Sort
-    // Purpose : Restore original unsorted values
-    // ======================================================
-
-    billy[0] = 4;
-    billy[1] = 2;
-    billy[2] = 1;
-    billy[3] = 3;
-    billy[4] = 5;
-    // Reset array so insertion sort starts with same original data
+    cout << "Bubble Sort Execution Time: "
+         << durationBubble.count()
+         << " microseconds\n";
 
 
     // ======================================================
-    // CATEGORY: Insertion Sort Section
+    // INSERTION SORT SECTION
     // ======================================================
 
-    cout << "Pre insertion sort array: " << endl;
-    // Display original array before insertion sort
+    start = high_resolution_clock::now();
 
-    print_array(billy, size);
-    // Print reset array
+    insertion_sort(insertionArray, size);
 
-    start = clock();
-    // Record start time before insertion sort begins
+    end = high_resolution_clock::now();
 
+    auto durationInsertion = duration_cast<microseconds>(end - start);
 
-    // Insertion Sort Algorithm
-    for (int unsorted = 1; unsorted < size; unsorted++) {
-        // Start from second element because first element is already considered sorted
+    cout << "\nInsertion Sort Result: ";
+    print_array(insertionArray, size);
 
-        i = 0;
-        // Start checking from first element of sorted portion
+    cout << "Insertion Sort Execution Time: "
+         << durationInsertion.count()
+         << " microseconds\n";
 
-        int less = 0;
-        // Flag variable to check if insertion is needed
-
-        while (i < unsorted && !less) {
-            // Search correct position for current unsorted value
-
-            if (billy[i] > billy[unsorted])
-                less = 1;
-            // Found insertion point because current sorted element is larger
-
-            else
-                i++;
-            // Move to next sorted element
-        }
-
-        if (less) {
-            // If insertion point was found
-
-            temp = billy[unsorted];
-            // Store the unsorted value temporarily
-
-            for (int j = unsorted - 1; j >= i; j--)
-                billy[j + 1] = billy[j];
-            // Shift elements one position to the right
-
-            billy[i] = temp;
-            // Insert saved value into correct position
-        }
-    }
-
-    end = clock();
-    // Record end time after insertion sort finishes
-
-
-    cout << "Post insertion sort array: " << endl;
-    // Display label after insertion sort
-
-    print_array(billy, size);
-    // Print sorted array
-
-
-    double time_taken_insertion = double(end - start) / CLOCKS_PER_SEC * 1000;
-    // Convert elapsed time into milliseconds
-
-    cout << "Insertion sort time: " << time_taken_insertion << " milliseconds" << endl;
-    // Display insertion sort execution time
 
     return 0;
-    // End program successfully
 }
 
 
 
 // ==========================================================
-// CATEGORY: Array Printing Function
-// Purpose : Display array elements in one line
+// FUNCTION: PRINT ARRAY
+// Purpose : Display array elements
 // ==========================================================
 
-void print_array(int array[], int size) {
+void print_array(int array[], int size){
 
-    for (int i = 0; i < size; i++) {
-        // Loop through all elements in the array
+    for(int i = 0; i < size; i++){
 
         cout << array[i];
-        // Print current element
 
-        if (i < size - 1)
-            cout << " ,";
-        // Print comma after each element except the last one
+        if(i < size - 1)
+            cout << ", ";
+    }
 
-        else
-            cout << endl;
-        // Move to next line after the last element
+    cout << endl;
+}
+
+
+
+// ==========================================================
+// FUNCTION: BUBBLE SORT
+// ==========================================================
+
+void bubble_sort(int array[], int size){
+
+    int temp;
+
+    for(int iteration = 0; iteration < size - 1; iteration++){
+
+        for(int i = 0; i < size - 1 - iteration; i++){
+
+            if(array[i] > array[i+1]){
+
+                temp = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temp;
+
+            }
+        }
+    }
+}
+
+
+
+// ==========================================================
+// FUNCTION: INSERTION SORT
+// ==========================================================
+
+void insertion_sort(int array[], int size){
+
+    int i, temp;
+
+    for(int unsorted = 1; unsorted < size; unsorted++){
+
+        i = unsorted;
+
+        while(i > 0 && array[i-1] > array[i]){
+
+            temp = array[i];
+            array[i] = array[i-1];
+            array[i-1] = temp;
+
+            i--;
+        }
     }
 }
