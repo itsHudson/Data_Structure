@@ -36,9 +36,9 @@ The order of precedence for operators is:
 ```
 Input: `str = "a+b*(c^d-e)^(f+g*h)-i"`
 Output: `abcd^e-fgh*+^*+i-`
+
+Explanation: After converting the infix expression into postfix expression, the resulting postfix expression is: `abcd^e-fgh*+^*+i-`
 ```
-## Explanation
-After converting the infix expression into postfix expression, the resulting postfix expression is: `abcd^e-fgh*+^*+i-`
 
 ---
 
@@ -46,10 +46,9 @@ After converting the infix expression into postfix expression, the resulting pos
 ```
 Input: `str = "A*(B+C)/D"`
 Output: `ABC+*D/`
-```
-## Explanation
-After converting the infix expression into postfix expression, the resulting postfix expression is: `ABC+*D/`
 
+Explanation: After converting the infix expression into postfix expression, the resulting postfix expression is: `ABC+*D/`
+```
 
 
 
