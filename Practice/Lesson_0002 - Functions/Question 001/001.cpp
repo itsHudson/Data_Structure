@@ -14,10 +14,15 @@ using namespace std;    // Allows us to write cout instead of std::cout
 //           and will be defined later in the program
 // ==========================================================
 
-void add1();             // Type 1: function without return value and without parameters
-int add2(int, int);      // Type 2: function with return value and with parameters
-void add3(int, int);     // Type 3: function without return value but with parameters
-int add4();              // Type 4: function with return value but without parameters
+void Add1();                         // Type 1: function without return value and without parameters
+int Add2(int FirstNumber, int SecondNumber);     
+// Type 2: function with return value and with parameters
+
+void Add3(int FirstNumber, int SecondNumber);    
+// Type 3: function without return value but with parameters
+
+int Add4();                          
+// Type 4: function with return value but without parameters
 
 
 
@@ -33,14 +38,16 @@ int main() {
     // Purpose : Store numbers that will be passed to functions
     // ======================================================
 
-    int x, y;    // Variables to store two integers from the user
+    int FirstInputNumber, SecondInputNumber;    
+    // Variables to store two integers from the user
 
 
     cout << "Enter two integers for function with parameters: ";
     // Ask the user to input two numbers
 
-    cin >> x >> y;
-    // Store the numbers entered by the user into variables x and y
+    cin >> FirstInputNumber >> SecondInputNumber;
+    // Store the numbers entered by the user into variables
+    // FirstInputNumber and SecondInputNumber
 
     cout << endl;
     // Print a blank line for better formatting
@@ -55,8 +62,8 @@ int main() {
     cout << "Type 1: Function without return and without parameters\n";
     // Display description of function type
 
-    add1();
-    // Call function add1()
+    Add1();
+    // Call function Add1()
     // This function will ask the user for numbers internally
 
     cout << endl;
@@ -70,11 +77,11 @@ int main() {
 
     cout << "Type 2: Function with return and with parameters\n";
 
-    int result2 = add2(x, y);
-    // Call function add2 and pass x and y as parameters
-    // The returned value (sum) is stored in result2
+    int ResultType2 = Add2(FirstInputNumber, SecondInputNumber);
+    // Call function Add2 and pass FirstInputNumber and SecondInputNumber as parameters
+    // The returned value (sum) is stored in ResultType2
 
-    cout << "Sum = " << result2 << endl;
+    cout << "Sum = " << ResultType2 << endl;
     // Display the returned sum
 
     cout << endl;
@@ -88,8 +95,8 @@ int main() {
 
     cout << "Type 3: Function without return and with parameters\n";
 
-    add3(x, y);
-    // Pass x and y to function add3
+    Add3(FirstInputNumber, SecondInputNumber);
+    // Pass FirstInputNumber and SecondInputNumber to function Add3
     // Function itself prints the result
 
     cout << endl;
@@ -103,12 +110,12 @@ int main() {
 
     cout << "Type 4: Function with return and without parameters\n";
 
-    int result4 = add4();
-    // Call function add4()
+    int ResultType4 = Add4();
+    // Call function Add4()
     // The function will ask the user for numbers internally
-    // The returned sum is stored in result4
+    // The returned sum is stored in ResultType4
 
-    cout << "Sum = " << result4 << endl;
+    cout << "Sum = " << ResultType4 << endl;
     // Display the returned result
 
     cout << endl;
@@ -118,7 +125,8 @@ int main() {
     // CATEGORY: Program Termination
     // ======================================================
 
-    return 0;     // Indicates the program ended successfully
+    return 0;     
+    // Indicates the program ended successfully
 }
 
 
@@ -128,23 +136,23 @@ int main() {
 // Function without return value AND without parameters
 // ==========================================================
 
-void add1() {
+void Add1() {
 
-    int a, b, sum;
+    int FirstNumber, SecondNumber, SumResult;
     // Variables to store two numbers and their sum
 
     cout << "Enter first number: ";
-    cin >> a;
+    cin >> FirstNumber;
     // Read first number
 
     cout << "Enter second number: ";
-    cin >> b;
+    cin >> SecondNumber;
     // Read second number
 
-    sum = a + b;
+    SumResult = FirstNumber + SecondNumber;
     // Perform addition of the two numbers
 
-    cout << "Sum = " << sum << endl;
+    cout << "Sum = " << SumResult << endl;
     // Display the calculated sum
 }
 
@@ -155,12 +163,12 @@ void add1() {
 // Function WITH return value AND WITH parameters
 // ==========================================================
 
-int add2(int a, int b) {
+int Add2(int FirstNumber, int SecondNumber) {
 
-    int sum = a + b;
-    // Calculate sum of parameters a and b
+    int SumResult = FirstNumber + SecondNumber;
+    // Calculate sum of parameters FirstNumber and SecondNumber
 
-    return sum;
+    return SumResult;
     // Return the result back to main()
 }
 
@@ -171,12 +179,12 @@ int add2(int a, int b) {
 // Function WITHOUT return value BUT WITH parameters
 // ==========================================================
 
-void add3(int a, int b) {
+void Add3(int FirstNumber, int SecondNumber) {
 
-    int sum = a + b;
-    // Calculate sum of parameters a and b
+    int SumResult = FirstNumber + SecondNumber;
+    // Calculate sum of parameters FirstNumber and SecondNumber
 
-    cout << "Sum = " << sum << endl;
+    cout << "Sum = " << SumResult << endl;
     // Print the result directly inside the function
 }
 
@@ -187,19 +195,19 @@ void add3(int a, int b) {
 // Function WITH return value BUT WITHOUT parameters
 // ==========================================================
 
-int add4() {
+int Add4() {
 
-    int a, b;
+    int FirstNumber, SecondNumber;
     // Variables to store numbers entered by the user
 
     cout << "Enter first number: ";
-    cin >> a;
+    cin >> FirstNumber;
     // Read first number
 
     cout << "Enter second number: ";
-    cin >> b;
+    cin >> SecondNumber;
     // Read second number
 
-    return a + b;
+    return FirstNumber + SecondNumber;
     // Return the calculated sum to the main function
 }
