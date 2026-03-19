@@ -3,49 +3,68 @@
 # Tree Analysis Questions
 
 ## (a) What is the length of the path from Monkey → Panda?
+```
+Path: Monkey → Rat → Panda
+Calculation: Number of edges in this path = 2
+Answer: 2
+```
 
-### Path
-- Monkey → Rat → Panda
 
-### Calculation
-- Number of edges in this path = **2**
 
-### Answer
-**2**
+
 
 ---
+
+
+
+
 
 # (b) What is the height of the tree given?
 
 ### Longest Path from Root to Leaf
+```
 Possible longest paths:
-
 - Monkey → Rat → Tiger → Salmon  
 - Monkey → Rat → Tiger → Zebra  
+```
 
 ### Calculation
+```
 - Number of edges in the path = **3**
+- Answer: 3
 
-### Answer
-**3**
+- Note
+  - If height is measured by **levels instead of edges**, the height would be **4 levels**.
+  - In **Data Structures**, height is usually counted using **edges**, so **3 is the correct answer**.
+```
 
-### Note
-- If height is measured by **levels instead of edges**, the height would be **4 levels**.
-- In **Data Structures**, height is usually counted using **edges**, so **3 is the correct answer**.
+
+
+
 
 ---
+
+
+
+
 
 # (c) What is the degree of node Rat?
 
 ### Children of Node Rat
+```
 - Left child: **Panda**
 - Right child: **Tiger**
+```
 
 ### Degree of Node Rat
+```
 - Number of children = **2**
+```
 
 ### Answer
-**2**
+```
+2
+```
 
 ---
 
