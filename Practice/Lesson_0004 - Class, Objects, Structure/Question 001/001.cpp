@@ -18,17 +18,17 @@ using namespace std;         // Allows writing cout instead of std::cout
 class Line
 {
 public:
-    void setLength(double len);
+    void SetLength(double NewLengthValue);
     // Public member function to set the length of the line
 
-    double getLength(void);
+    double GetLength(void);
     // Public member function to return the current length
 
     Line();
     // Default constructor
     // Automatically runs when an object is created
 
-    Line(double len);
+    Line(double InitialLengthValue);
     // Constructor with parameter
     // Allows creating an object with an initial length
 
@@ -37,7 +37,7 @@ public:
     // Automatically runs when the object is destroyed
 
 private:
-    double length;
+    double LineLength;
     // Private variable storing the length of the line
 };
 
@@ -53,18 +53,18 @@ Line::Line(void)
     cout << "Object is being created" << endl;
     // Display message when object is created
 
-    length = 0;
+    LineLength = 0;
     // Initialize length to 0 by default
 }
 
 
 
-Line::Line(double len)
+Line::Line(double InitialLengthValue)
 {
-    cout << "Object is being created, length = " << len << endl;
+    cout << "Object is being created, length = " << InitialLengthValue << endl;
     // Display message showing the length passed into constructor
 
-    length = len;
+    LineLength = InitialLengthValue;
     // Store the provided length into the object
 }
 
@@ -88,9 +88,9 @@ Line::~Line(void)
 // Purpose : Assign a new length value to the line
 // ==========================================================
 
-void Line::setLength(double len)
+void Line::SetLength(double NewLengthValue)
 {
-    length = len;
+    LineLength = NewLengthValue;
     // Store the new length value into the class variable
 }
 
@@ -101,9 +101,9 @@ void Line::setLength(double len)
 // Purpose : Return the stored length of the line
 // ==========================================================
 
-double Line::getLength(void)
+double Line::GetLength(void)
 {
-    return length;
+    return LineLength;
     // Send the current length value back to the caller
 }
 
@@ -116,15 +116,15 @@ double Line::getLength(void)
 
 int main()
 {
-    Line line;
-    // Create an object named "line" from class Line
+    Line LineObject;
+    // Create an object named "LineObject" from class Line
     // Default constructor runs automatically
 
-    line.setLength(6.0);
+    LineObject.SetLength(6.0);
     // Set the length of the line object to 6.0
 
-    cout << "Length of line : " << line.getLength() << endl;
-    // Call getLength() function to retrieve the length
+    cout << "Length of line : " << LineObject.GetLength() << endl;
+    // Call GetLength() function to retrieve the length
     // Then display it on the screen
 
     return 0;
