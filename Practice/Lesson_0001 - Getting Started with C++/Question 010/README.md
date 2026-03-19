@@ -5,3 +5,5 @@
 - if the average score<50% =>grade=F
 
 ```text
+Enter 3 scores (quiz, mid-term, and final) separated by space: 23 44 55
+Grade F
