@@ -12,23 +12,28 @@ using namespace std;     // Allows writing cout instead of std::cout
 // ==========================================================
 // CATEGORY: Recursive Function (Reverse Display)
 // Purpose : Print numbers from end → start using recursion
-// Example : start=1 end=5 → prints 5 + 4 + 3 + 2 + 1
+// Example : StartValue=1 EndValue=5 → prints 5 + 4 + 3 + 2 + 1
 // ==========================================================
 
-void RecursiveReverseDisplayNumber(int start, int end)
+void RecursiveReverseDisplayNumber(int StartValue, int EndValue)
 {
-    if (end < start)          // Base condition: if end becomes smaller than start
-        return;               // Stop recursion because there are no numbers left
+    if (EndValue < StartValue)     
+        // Base condition: if EndValue becomes smaller than StartValue
+        return;                    
+        // Stop recursion because there are no numbers left
 
-    cout << end;              // Print the current number
+    cout << EndValue;              
+    // Print the current number
 
-    if (end > start)          // If it is NOT the last number
-        cout << " + ";        // Print "+" symbol between numbers
+    if (EndValue > StartValue)     
+        // If it is NOT the last number
+        cout << " + ";             
+        // Print "+" symbol between numbers
 
-    RecursiveReverseDisplayNumber(start, end - 1);
+    RecursiveReverseDisplayNumber(StartValue, EndValue - 1);
     // Recursive call
-    // The function calls itself again with end reduced by 1
-    // This moves the sequence backwards (end → start)
+    // The function calls itself again with EndValue reduced by 1
+    // This moves the sequence backwards (EndValue → StartValue)
 }
 
 
@@ -39,19 +44,21 @@ void RecursiveReverseDisplayNumber(int start, int end)
 // Example : 5 + 4 + 3 + 2 + 1
 // ==========================================================
 
-int RecursiveCalSum(int start, int end)
+int RecursiveCalSum(int StartValue, int EndValue)
 {
-    if (end < start)          // Base condition: stop when end < start
-        return 0;             // Return 0 because there are no more numbers to add
+    if (EndValue < StartValue)     
+        // Base condition: stop when EndValue < StartValue
+        return 0;                  
+        // Return 0 because there are no more numbers to add
 
     // Recursive formula
-    return end + RecursiveCalSum(start, end - 1);
+    return EndValue + RecursiveCalSum(StartValue, EndValue - 1);
 
     /*
        Explanation:
-       end + RecursiveCalSum(start, end - 1)
+       EndValue + RecursiveCalSum(StartValue, EndValue - 1)
 
-       Example if end=5:
+       Example if EndValue = 5:
        5 + RecursiveCalSum(1,4)
        5 + (4 + RecursiveCalSum(1,3))
        5 + 4 + (3 + RecursiveCalSum(1,2))
@@ -68,17 +75,17 @@ int RecursiveCalSum(int start, int end)
 
 int main()
 {
-    int startvalue, endvalue;
+    int StartValue, EndValue;
     // Variables to store the starting and ending numbers entered by the user
 
 
     cout << "Enter a start value: ";
-    cin >> startvalue;
+    cin >> StartValue;
     // Read the starting number from the user
 
 
     cout << "Enter an end value: ";
-    cin >> endvalue;
+    cin >> EndValue;
     // Read the ending number from the user
 
 
@@ -91,8 +98,8 @@ int main()
     // Purpose : Show the recursive sequence of numbers
     // ======================================================
 
-    RecursiveReverseDisplayNumber(startvalue, endvalue);
-    // Call the recursive function to print numbers from end → start
+    RecursiveReverseDisplayNumber(StartValue, EndValue);
+    // Call the recursive function to print numbers from EndValue → StartValue
 
 
     cout << " = ";
@@ -104,7 +111,7 @@ int main()
     // Purpose : Use recursion to calculate the total sum
     // ======================================================
 
-    cout << RecursiveCalSum(startvalue, endvalue) << endl;
+    cout << RecursiveCalSum(StartValue, EndValue) << endl;
     // Call the recursive sum function and display the result
 
 
@@ -112,5 +119,6 @@ int main()
     // CATEGORY: Program Termination
     // ======================================================
 
-    return 0;                 // Indicates the program ended successfully
+    return 0;                 
+    // Indicates the program ended successfully
 }
