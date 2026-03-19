@@ -16,10 +16,10 @@ using namespace std;  // Allows us to use cout and cin without writing std::
 
 int main(){
 
-    const int SIZE = 10;
+    const int ArraySize = 10;
     // Constant variable representing the number of elements in the array
 
-    int numbers[SIZE];
+    int NumbersArray[ArraySize];
     // Declare an array to store 10 integers entered by the user
 
 
@@ -28,13 +28,13 @@ int main(){
     // Purpose : Read numbers one by one into the array
     // ======================================================
 
-    for (int i = 0; i < SIZE; i++){
+    for (int CurrentIndex = 0; CurrentIndex < ArraySize; CurrentIndex++){
         // Loop from index 0 to 9 to store 10 numbers
 
-        bool isDuplicate;
+        bool IsDuplicateValue;
         // Flag variable used to check whether the input value already exists
 
-        int value;
+        int UserInputValue;
         // Temporary variable to store the user's input before placing it into the array
 
 
@@ -45,14 +45,14 @@ int main(){
 
         do{
 
-            cout << "Enter value " << i + 1 << ": ";
+            cout << "Enter value " << CurrentIndex + 1 << ": ";
             // Ask the user to enter the next value
-            // i + 1 is used so the display starts from 1 instead of 0
+            // CurrentIndex + 1 is used so the display starts from 1 instead of 0
 
-            cin >> value;
+            cin >> UserInputValue;
             // Read the number entered by the user
 
-            isDuplicate = false;
+            IsDuplicateValue = false;
             // Assume the value is NOT duplicate initially
 
 
@@ -61,17 +61,17 @@ int main(){
             // Purpose : Compare input with previously stored numbers
             // ==============================================
 
-            for (int j = 0; j < i; j++){
+            for (int CheckIndex = 0; CheckIndex < CurrentIndex; CheckIndex++){
                 // Check only the values that were already stored
-                // j runs from index 0 up to i-1
+                // CheckIndex runs from index 0 up to CurrentIndex-1
 
-                if (numbers[j] == value) {
+                if (NumbersArray[CheckIndex] == UserInputValue) {
                     // If the current input value already exists in the array
 
                     cout << "Value already in the list! Please choose other value!" << endl;
                     // Show error message
 
-                    isDuplicate = true;
+                    IsDuplicateValue = true;
                     // Mark the value as duplicate
 
                     break;
@@ -81,11 +81,11 @@ int main(){
 
         }
 
-        while(isDuplicate);
+        while(IsDuplicateValue);
         // If duplicate is detected, repeat the input process
 
 
-        numbers[i] = value;
+        NumbersArray[CurrentIndex] = UserInputValue;
         // Store the valid (non-duplicate) value into the array
     }
 
@@ -100,13 +100,13 @@ int main(){
     // Display message before printing the values
 
 
-    for(int i = 0; i < SIZE; i++){
+    for(int DisplayIndex = 0; DisplayIndex < ArraySize; DisplayIndex++){
         // Loop through all elements in the array
 
-        cout << numbers[i];
+        cout << NumbersArray[DisplayIndex];
         // Print the current number
 
-        if(i < SIZE - 1){
+        if(DisplayIndex < ArraySize - 1){
             // If the current number is not the last element
 
             cout << ", ";
