@@ -4,89 +4,170 @@
 //           Binary Search and measure execution time
 // ==========================================================
 
-#include <iostream>   // Allows input/output operations
+
+// ==========================================================
+// CATEGORY: Header Files / Libraries
+// ==========================================================
+
+#include <iostream>   // Allows input/output operations (cin, cout)
 #include <ctime>      // Allows time measurement using clock()
 
-#define size 10       // Define array size
+
+// ==========================================================
+// CATEGORY: Constant Definition
+// ==========================================================
+
+#define ARRAY_SIZE 10
+// Define array size as 10 using a macro constant
+
 
 using namespace std;
 
 
 // ==========================================================
 // CATEGORY: Main Function
+// Purpose : Program execution starts here
 // ==========================================================
 
 int main() {
 
-    // Sorted array required for Binary Search
-    int array[size] = {10,20,30,40,50,60,70,80,90,100};
+    // ======================================================
+    // CATEGORY: Array Initialization
+    // Purpose : Declare a sorted array required for Binary Search
+    // ======================================================
 
-    int found, min, max, mid, num;
+    int SortedArray[ARRAY_SIZE] = {10,20,30,40,50,60,70,80,90,100};
+    // Declare and initialize a sorted integer array
+
+
+    // ======================================================
+    // CATEGORY: Variable Declaration
+    // Purpose : Store search control values
+    // ======================================================
+
+    int IsValueFound, MinimumIndex, MaximumIndex, MiddleIndex, TargetNumber;
+    // IsValueFound  → flag variable indicating whether the value is found
+    // MinimumIndex  → starting index of the search range
+    // MaximumIndex  → ending index of the search range
+    // MiddleIndex   → middle position of the current search range
+    // TargetNumber  → value entered by the user to search
+
+
+    // ======================================================
+    // CATEGORY: User Input
+    // ======================================================
 
     cout << "Binary Search Program\n";
+    // Display program title
+
     cout << "Enter number to search: ";
-    cin >> num;
+    // Prompt user to enter a value to search
 
+    cin >> TargetNumber;
+    // Read the number entered by the user
 
-    // ======================================================
-    // Start time measurement
-    // ======================================================
-
-    clock_t start = clock();
-
-    found = 0;       // Flag variable
-    min = 0;         // First index
-    max = size - 1;  // Last index
 
 
     // ======================================================
-    // Binary Search Algorithm
+    // CATEGORY: Start Time Measurement
     // ======================================================
 
-    while (min <= max && !found) {
+    clock_t StartTime = clock();
+    // Record the starting time before the search begins
 
-        mid = (min + max) / 2;  // Find middle index
 
-        if (num == array[mid]) {
-            found = 1;          // Value found
+    IsValueFound = 0;
+    // Initialize flag variable (0 means value not found)
+
+    MinimumIndex = 0;
+    // Set the first index of the array
+
+    MaximumIndex = ARRAY_SIZE - 1;
+    // Set the last index of the array
+
+
+
+    // ======================================================
+    // CATEGORY: Binary Search Algorithm
+    // Purpose : Repeatedly divide the array to find the value
+    // ======================================================
+
+    while (MinimumIndex <= MaximumIndex && !IsValueFound) {
+    // Continue searching while:
+    // 1. The search range is valid
+    // 2. The value has not yet been found
+
+        MiddleIndex = (MinimumIndex + MaximumIndex) / 2;
+        // Calculate the middle index of the current range
+
+        if (TargetNumber == SortedArray[MiddleIndex]) {
+        // If the middle value matches the target number
+
+            IsValueFound = 1;
+            // Mark the value as found
         }
 
-        else if (num < array[mid]) {
-            max = mid - 1;      // Search left half
+        else if (TargetNumber < SortedArray[MiddleIndex]) {
+        // If target number is smaller than the middle value
+
+            MaximumIndex = MiddleIndex - 1;
+            // Search the left half of the array
         }
 
         else {
-            min = mid + 1;      // Search right half
+        // If target number is larger than the middle value
+
+            MinimumIndex = MiddleIndex + 1;
+            // Search the right half of the array
         }
     }
 
 
-    // ======================================================
-    // Stop time measurement
-    // ======================================================
-
-    clock_t end = clock();
-
 
     // ======================================================
-    // Display search result
+    // CATEGORY: Stop Time Measurement
     // ======================================================
 
-    if (found)
-        cout << num << " is found at index " << mid << endl;
+    clock_t EndTime = clock();
+    // Record the ending time immediately after the search
+
+
+
+    // ======================================================
+    // CATEGORY: Display Search Result
+    // ======================================================
+
+    if (IsValueFound)
+        cout << TargetNumber << " is found at index " << MiddleIndex << endl;
+    // Display the index where the value is found
+
     else
-        cout << num << " is NOT found!" << endl;
+        cout << TargetNumber << " is NOT found!" << endl;
+    // Display message if the value does not exist in the array
+
 
 
     // ======================================================
-    // Calculate execution time
+    // CATEGORY: Execution Time Calculation
     // ======================================================
 
-    double time_taken = double(end - start) / CLOCKS_PER_SEC * 1000;
+    double ExecutionTimeMilliseconds = double(EndTime - StartTime) / CLOCKS_PER_SEC * 1000;
+    // Calculate the time difference between start and end
+    // Convert the result to milliseconds
 
-    cout << "Time taken by binary search: "
-         << time_taken << " milliseconds" << endl;
 
+    cout << "Time taken by binary search: ";
+    // Display execution time message
+
+    cout << ExecutionTimeMilliseconds << " milliseconds" << endl;
+    // Print the actual time taken by the binary search algorithm
+
+
+
+    // ======================================================
+    // CATEGORY: Program Termination
+    // ======================================================
 
     return 0;
+    // Return 0 indicates the program ended successfully
 }
