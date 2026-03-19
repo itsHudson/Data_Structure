@@ -3,8 +3,8 @@
 // Purpose : Import libraries for input/output and timing
 // ==========================================================
 
-#include <iostream>
-#include <chrono>
+#include <iostream>   // Allows input/output operations (cin, cout)
+#include <chrono>     // Provides time measurement utilities
 
 using namespace std;
 using namespace std::chrono;
@@ -12,78 +12,134 @@ using namespace std::chrono;
 
 // ==========================================================
 // FUNCTION PROTOTYPES
+// Purpose : Declare functions before main()
 // ==========================================================
 
-void print_array(int array[], int size);
-void bubble_sort(int array[], int size);
-void insertion_sort(int array[], int size);
+void PrintArray(int InputArray[], int ArraySize);
+// Function used to display array elements
+
+void BubbleSort(int InputArray[], int ArraySize);
+// Function used to perform Bubble Sort
+
+void InsertionSort(int InputArray[], int ArraySize);
+// Function used to perform Insertion Sort
 
 
 
 // ==========================================================
 // MAIN FUNCTION
+// Purpose : Program execution starts here
 // ==========================================================
 
 int main() {
 
-    int billy[] = {4, 2, 1, 3, 5};
-    int size = sizeof(billy) / sizeof(billy[0]);
+    // ======================================================
+    // CATEGORY: Array Initialization
+    // Purpose : Create original array to be sorted
+    // ======================================================
 
-    int bubbleArray[5];
-    int insertionArray[5];
+    int OriginalArray[] = {4, 2, 1, 3, 5};
+    // Declare an integer array containing unsorted values
+
+    int ArraySize = sizeof(OriginalArray) / sizeof(OriginalArray[0]);
+    // Calculate number of elements in the array
+
+
+    int BubbleSortArray[5];
+    int InsertionSortArray[5];
+    // Create two arrays to store copies for each sorting algorithm
 
 
     // ======================================================
-    // Copy original array so both algorithms start equally
+    // CATEGORY: Copy Original Array
+    // Purpose : Ensure both algorithms sort identical data
     // ======================================================
 
-    for(int i = 0; i < size; i++){
-        bubbleArray[i] = billy[i];
-        insertionArray[i] = billy[i];
+    for(int CurrentIndex = 0; CurrentIndex < ArraySize; CurrentIndex++){
+        // Loop through the original array
+
+        BubbleSortArray[CurrentIndex] = OriginalArray[CurrentIndex];
+        // Copy value into Bubble Sort array
+
+        InsertionSortArray[CurrentIndex] = OriginalArray[CurrentIndex];
+        // Copy value into Insertion Sort array
     }
 
 
     // ======================================================
-    // BUBBLE SORT SECTION
+    // CATEGORY: BUBBLE SORT SECTION
     // ======================================================
 
     cout << "Original Array: ";
-    print_array(billy, size);
+    // Display label before printing array
 
-    auto start = high_resolution_clock::now();
+    PrintArray(OriginalArray, ArraySize);
+    // Display the original unsorted array
 
-    bubble_sort(bubbleArray, size);
 
-    auto end = high_resolution_clock::now();
+    auto StartTime = high_resolution_clock::now();
+    // Record starting time before Bubble Sort begins
 
-    auto durationBubble = duration_cast<microseconds>(end - start);
+
+    BubbleSort(BubbleSortArray, ArraySize);
+    // Perform Bubble Sort on copied array
+
+
+    auto EndTime = high_resolution_clock::now();
+    // Record ending time after sorting completes
+
+
+    auto BubbleSortDuration =
+        duration_cast<microseconds>(EndTime - StartTime);
+    // Calculate Bubble Sort execution time
+
 
     cout << "\nBubble Sort Result: ";
-    print_array(bubbleArray, size);
+    // Display result label
+
+    PrintArray(BubbleSortArray, ArraySize);
+    // Display sorted array
+
 
     cout << "Bubble Sort Execution Time: "
-         << durationBubble.count()
+         << BubbleSortDuration.count()
          << " microseconds\n";
+    // Display Bubble Sort execution time
+
 
 
     // ======================================================
-    // INSERTION SORT SECTION
+    // CATEGORY: INSERTION SORT SECTION
     // ======================================================
 
-    start = high_resolution_clock::now();
+    StartTime = high_resolution_clock::now();
+    // Record starting time before Insertion Sort begins
 
-    insertion_sort(insertionArray, size);
 
-    end = high_resolution_clock::now();
+    InsertionSort(InsertionSortArray, ArraySize);
+    // Perform Insertion Sort
 
-    auto durationInsertion = duration_cast<microseconds>(end - start);
+
+    EndTime = high_resolution_clock::now();
+    // Record ending time
+
+
+    auto InsertionSortDuration =
+        duration_cast<microseconds>(EndTime - StartTime);
+    // Calculate Insertion Sort execution time
+
 
     cout << "\nInsertion Sort Result: ";
-    print_array(insertionArray, size);
+    // Display result label
+
+    PrintArray(InsertionSortArray, ArraySize);
+    // Display sorted array
+
 
     cout << "Insertion Sort Execution Time: "
-         << durationInsertion.count()
+         << InsertionSortDuration.count()
          << " microseconds\n";
+    // Display execution time
 
 
     return 0;
@@ -92,43 +148,61 @@ int main() {
 
 
 // ==========================================================
-// FUNCTION: PRINT ARRAY
+// FUNCTION: PrintArray
 // Purpose : Display array elements
 // ==========================================================
 
-void print_array(int array[], int size){
+void PrintArray(int InputArray[], int ArraySize){
 
-    for(int i = 0; i < size; i++){
+    for(int CurrentIndex = 0; CurrentIndex < ArraySize; CurrentIndex++){
+    // Loop through all array elements
 
-        cout << array[i];
+        cout << InputArray[CurrentIndex];
+        // Print current array value
 
-        if(i < size - 1)
+        if(CurrentIndex < ArraySize - 1)
             cout << ", ";
+        // Print comma separator if not the last element
     }
 
     cout << endl;
+    // Move to the next line
 }
 
 
 
 // ==========================================================
-// FUNCTION: BUBBLE SORT
+// FUNCTION: BubbleSort
+// Purpose : Sort array using Bubble Sort algorithm
 // ==========================================================
 
-void bubble_sort(int array[], int size){
+void BubbleSort(int InputArray[], int ArraySize){
 
-    int temp;
+    int TemporaryValue;
+    // Variable used for swapping elements
 
-    for(int iteration = 0; iteration < size - 1; iteration++){
+    for(int Iteration = 0; Iteration < ArraySize - 1; Iteration++){
+    // Outer loop controls number of passes
 
-        for(int i = 0; i < size - 1 - iteration; i++){
+        for(int CurrentIndex = 0;
+            CurrentIndex < ArraySize - 1 - Iteration;
+            CurrentIndex++){
+        // Inner loop compares adjacent elements
 
-            if(array[i] > array[i+1]){
+            if(InputArray[CurrentIndex] >
+               InputArray[CurrentIndex + 1]){
+            // If elements are in wrong order
 
-                temp = array[i];
-                array[i] = array[i+1];
-                array[i+1] = temp;
+                TemporaryValue = InputArray[CurrentIndex];
+                // Store first value temporarily
 
+                InputArray[CurrentIndex] =
+                    InputArray[CurrentIndex + 1];
+                // Move second value forward
+
+                InputArray[CurrentIndex + 1] =
+                    TemporaryValue;
+                // Place stored value in second position
             }
         }
     }
@@ -137,24 +211,42 @@ void bubble_sort(int array[], int size){
 
 
 // ==========================================================
-// FUNCTION: INSERTION SORT
+// FUNCTION: InsertionSort
+// Purpose : Sort array using Insertion Sort algorithm
 // ==========================================================
 
-void insertion_sort(int array[], int size){
+void InsertionSort(int InputArray[], int ArraySize){
 
-    int i, temp;
+    int CurrentIndex, TemporaryValue;
+    // CurrentIndex used for position tracking
+    // TemporaryValue used during swapping
 
-    for(int unsorted = 1; unsorted < size; unsorted++){
+    for(int UnsortedIndex = 1;
+        UnsortedIndex < ArraySize;
+        UnsortedIndex++){
+    // Loop through unsorted portion of array
 
-        i = unsorted;
+        CurrentIndex = UnsortedIndex;
+        // Start comparison from the current element
 
-        while(i > 0 && array[i-1] > array[i]){
+        while(CurrentIndex > 0 &&
+              InputArray[CurrentIndex - 1] >
+              InputArray[CurrentIndex]){
+        // Continue swapping while elements are out of order
 
-            temp = array[i];
-            array[i] = array[i-1];
-            array[i-1] = temp;
+            TemporaryValue = InputArray[CurrentIndex];
+            // Store current value
 
-            i--;
+            InputArray[CurrentIndex] =
+                InputArray[CurrentIndex - 1];
+            // Shift previous element right
+
+            InputArray[CurrentIndex - 1] =
+                TemporaryValue;
+            // Insert stored value in correct position
+
+            CurrentIndex--;
+            // Move left in the array
         }
     }
 }
