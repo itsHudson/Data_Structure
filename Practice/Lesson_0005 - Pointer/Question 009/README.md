@@ -14,3 +14,27 @@
 - Input validation: Only accept the letters A, B, C, or D as answers.
 
 ```text
+Enter answers for 20 questions (A/B/C/D):
+Question 1: A
+Question 2: A
+Question 3: A
+Question 4: A
+Question 5: A
+Question 6: A
+Question 7: A
+Question 8: A
+Question 9: A
+Question 10: A
+Question 11: B
+Question 12: B
+Question 13: B
+Question 14: C
+Question 15: C
+Question 16: C
+Question 17: D
+Question 18: D
+Question 19: D
+Question 20: D
+
+Total correct answers = 7
+Result: FAILED
