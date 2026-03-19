@@ -27,8 +27,8 @@
 
 - The dispenser should show the number of items in the dispenser and the cost of the item. If the dispenser is empty, the program should inform the customer that this product is sold out. The dispenser releases the selected item if it is not empty.
 
-  ```text
-  ==============================================
+```
+==============================================
             FRUIT JUICE MACHINE               
 ==============================================
 1. Apple Juice
@@ -45,3 +45,4 @@ Cost of this item: 150 cents
 Please enter your payment in cents: 200
 Item released. Please collect your drink.
 Please collect your change: 50 cents
+```
