@@ -42,13 +42,13 @@ public:
 
     char Pop()
     {
-        char DeletedCharacter = StackArray[TopIndex];
+        char RemovedCharacter = StackArray[TopIndex];
         // Store the top character before removing it
 
         TopIndex--;
         // Move top index down by one
 
-        return DeletedCharacter;
+        return RemovedCharacter;
         // Return removed character
     }
 
@@ -96,13 +96,13 @@ public:
 
     char Dequeue()
     {
-        char DeletedCharacter = QueueArray[FrontIndex];
+        char RemovedCharacter = QueueArray[FrontIndex];
         // Store the front character before removing it
 
         FrontIndex++;
         // Move front index forward by one
 
-        return DeletedCharacter;
+        return RemovedCharacter;
         // Return removed character
     }
 
@@ -121,7 +121,7 @@ public:
 
 int main()
 {
-    string InputText;
+    string OriginalInputText;
     // Variable to store the text entered by the user
 
     string ProcessedText = "";
@@ -136,14 +136,14 @@ int main()
     cout << "Enter a line of text: ";
     // Ask the user to enter a line of text
 
-    getline(cin, InputText);
+    getline(cin, OriginalInputText);
     // Read the full line including spaces
 
-    for (int CharacterIndex = 0; CharacterIndex < InputText.length(); CharacterIndex++)
+    for (int CharacterIndex = 0; CharacterIndex < OriginalInputText.length(); CharacterIndex++)
     {
         // Loop through each character in the input text
 
-        char CurrentCharacter = tolower(InputText[CharacterIndex]);
+        char CurrentCharacter = tolower(OriginalInputText[CharacterIndex]);
         // Convert current character to lowercase
 
         if (isalnum(CurrentCharacter))
@@ -168,13 +168,13 @@ int main()
     {
         // Compare characters until both structures become empty
 
-        char StackCharacter = CharacterStack.Pop();
+        char StackTopCharacter = CharacterStack.Pop();
         // Get character from stack
 
-        char QueueCharacter = CharacterQueue.Dequeue();
+        char QueueFrontCharacter = CharacterQueue.Dequeue();
         // Get character from queue
 
-        if (StackCharacter != QueueCharacter)
+        if (StackTopCharacter != QueueFrontCharacter)
         {
             // If the characters do not match
 
