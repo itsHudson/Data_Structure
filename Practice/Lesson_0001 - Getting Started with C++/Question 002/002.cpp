@@ -24,9 +24,14 @@ int main() {
     // Purpose : Declare variables to store the student's details
     // ==========================================================
 
-    string name, gender, address;  // Store student's name, gender, and address
-    int age;                       // Store student's age as an integer
-    double ewallet;                // Store student's e-wallet amount as a decimal number
+    string StudentName, StudentGender, StudentHomeAddress;  
+    // Store student's name, gender, and address
+
+    int StudentAge;                       
+    // Store student's age as an integer
+
+    double StudentEWalletAmount;          
+    // Store student's e-wallet amount as a decimal number
 
 
     // ==========================================================
@@ -37,14 +42,14 @@ int main() {
     cout << left << setw(30) << "Student Name" << ":";
     // Display the label "Student Name" aligned to the left with width 30
 
-    getline(cin, name);
-    // Read the full student name, including spaces, and store it in 'name'
+    getline(cin, StudentName);
+    // Read the full student name, including spaces, and store it in 'StudentName'
 
 
     cout << left << setw(30) << "Student Gender" << ":";
     // Display the label "Student Gender"
 
-    cin >> gender;
+    cin >> StudentGender;
     // Read the student's gender
     // cin >> reads only one word until space is encountered
 
@@ -52,8 +57,8 @@ int main() {
     cout << left << setw(30) << "Student Age" << ":";
     // Display the label "Student Age"
 
-    cin >> age;
-    // Read the student's age and store it in 'age'
+    cin >> StudentAge;
+    // Read the student's age and store it in 'StudentAge'
 
 
     cout << left << setw(30) << "Student Home Address" << ":";
@@ -63,14 +68,14 @@ int main() {
     // Remove the leftover newline character from the input buffer
     // This is needed before using getline() after cin >>
 
-    getline(cin, address);
-    // Read the full home address, including spaces, and store it in 'address'
+    getline(cin, StudentHomeAddress);
+    // Read the full home address, including spaces, and store it in 'StudentHomeAddress'
 
 
     cout << left << setw(30) << "E-wallet Amount" << ":RM ";
     // Display the label "E-wallet Amount" with RM currency prefix
 
-    cin >> ewallet;
+    cin >> StudentEWalletAmount;
     // Read the e-wallet amount entered by the user
 
 
@@ -112,16 +117,16 @@ int main() {
     // Purpose : Display each student detail in a neat table format
     // ==========================================================
 
-    cout << "| Name      : " << left << setw(40) << name << "|\n";
+    cout << "| Name      : " << left << setw(40) << StudentName << "|\n";
     // Print the student's name inside the formatted output box
 
-    cout << "| Age       : " << left << setw(40) << age << "|\n";
+    cout << "| Age       : " << left << setw(40) << StudentAge << "|\n";
     // Print the student's age inside the formatted output box
 
-    cout << "| Gender    : " << left << setw(40) << gender << "|\n";
+    cout << "| Gender    : " << left << setw(40) << StudentGender << "|\n";
     // Print the student's gender inside the formatted output box
 
-    cout << "| Address   : " << left << setw(40) << address << "|\n";
+    cout << "| Address   : " << left << setw(40) << StudentHomeAddress << "|\n";
     // Print the student's address inside the formatted output box
 
 
@@ -131,19 +136,19 @@ int main() {
     //           with 2 decimal places for proper alignment
     // ==========================================================
 
-    stringstream ss;
+    stringstream EWalletStringStream;
     // Create a stringstream object to build a formatted string
 
-    ss << fixed << setprecision(2) << ewallet;
-    // Insert ewallet value into the stringstream in fixed decimal format
+    EWalletStringStream << fixed << setprecision(2) << StudentEWalletAmount;
+    // Insert e-wallet value into the stringstream in fixed decimal format
     // setprecision(2) ensures 2 digits after the decimal point
 
 
     cout << "| E-Wallet  : "
-         << left << setw(40) << ("RM " + ss.str())
+         << left << setw(40) << ("RM " + EWalletStringStream.str())
          << "|\n";
     // Print the formatted e-wallet amount with "RM " in front
-    // ss.str() converts the stringstream content into a normal string
+    // EWalletStringStream.str() converts the stringstream content into a normal string
 
 
     cout << "==========================================================\n";
