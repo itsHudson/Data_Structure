@@ -75,7 +75,7 @@
 
 ---
 
-## Additional Functions (Lab 7)
+## Additional Functions
 
 ### 5. Delete a Song from the Beginning of the List
 
