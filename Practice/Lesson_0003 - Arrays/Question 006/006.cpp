@@ -6,6 +6,7 @@
 
 #include <iostream>      // Allows use of cout and cin for output and input
 #include <iomanip>       // Allows use of formatting tools such as setw() and setprecision()
+#include <string>        // Allows usage of string data type
 
 using namespace std;     // Allows us to use cout, endl, setw directly without std::
 
@@ -16,15 +17,15 @@ using namespace std;     // Allows us to use cout, endl, setw directly without s
 //           marks out of 20
 // ==========================================================
 
-void ChangeQuizScoreToPercentage(double marks[][3], int numberOfStudents) {
-    // marks[row][0] stores quiz marks
-    // marks[row][1] stores mid-term marks
-    // marks[row][2] stores final exam marks
+void ChangeQuizScoreToPercentage(double StudentMarks[][3], int NumberOfStudents) {
+    // StudentMarks[row][0] stores quiz marks
+    // StudentMarks[row][1] stores mid-term marks
+    // StudentMarks[row][2] stores final exam marks
 
-    for (int i = 0; i < numberOfStudents; i++) {
+    for (int StudentIndex = 0; StudentIndex < NumberOfStudents; StudentIndex++) {
         // Loop through each student one by one
 
-        marks[i][0] = (marks[i][0] / 100.0) * 20.0;
+        StudentMarks[StudentIndex][0] = (StudentMarks[StudentIndex][0] / 100.0) * 20.0;
         // Convert quiz score from 100 to weighted marks out of 20
         // Example: 70 becomes (70/100) × 20 = 14
     }
@@ -37,11 +38,11 @@ void ChangeQuizScoreToPercentage(double marks[][3], int numberOfStudents) {
 //           weighted marks out of 50
 // ==========================================================
 
-void ChangeMidTermScoreToPercentage(double marks[][3], int numberOfStudents) {
-    for (int i = 0; i < numberOfStudents; i++) {
+void ChangeMidTermScoreToPercentage(double StudentMarks[][3], int NumberOfStudents) {
+    for (int StudentIndex = 0; StudentIndex < NumberOfStudents; StudentIndex++) {
         // Loop through each student
 
-        marks[i][1] = (marks[i][1] / 100.0) * 50.0;
+        StudentMarks[StudentIndex][1] = (StudentMarks[StudentIndex][1] / 100.0) * 50.0;
         // Convert mid-term score from 100 to weighted marks out of 50
     }
 }
@@ -53,11 +54,11 @@ void ChangeMidTermScoreToPercentage(double marks[][3], int numberOfStudents) {
 //           weighted marks out of 30
 // ==========================================================
 
-void ChangeFinalScoreToPercentage(double marks[][3], int numberOfStudents) {
-    for (int i = 0; i < numberOfStudents; i++) {
+void ChangeFinalScoreToPercentage(double StudentMarks[][3], int NumberOfStudents) {
+    for (int StudentIndex = 0; StudentIndex < NumberOfStudents; StudentIndex++) {
         // Loop through each student
 
-        marks[i][2] = (marks[i][2] / 100.0) * 30.0;
+        StudentMarks[StudentIndex][2] = (StudentMarks[StudentIndex][2] / 100.0) * 30.0;
         // Convert final exam score from 100 to weighted marks out of 30
     }
 }
@@ -68,24 +69,24 @@ void ChangeFinalScoreToPercentage(double marks[][3], int numberOfStudents) {
 // Purpose : Return a grade letter based on total score
 // ==========================================================
 
-char Check_Grade(double totalScore) {
+char CheckGrade(double TotalScore) {
     // Grade rules:
     // 90 and above = A
     // 70 to below 90 = B
     // 50 to below 70 = C
     // Below 50 = F
 
-    if (totalScore >= 90.0) {
+    if (TotalScore >= 90.0) {
         // If total score is 90 or above
         return 'A';
         // Return grade A
     } 
-    else if (totalScore >= 70.0) {
+    else if (TotalScore >= 70.0) {
         // If total score is between 70 and 89.99
         return 'B';
         // Return grade B
     } 
-    else if (totalScore >= 50.0) {
+    else if (TotalScore >= 50.0) {
         // If total score is between 50 and 69.99
         return 'C';
         // Return grade C
@@ -105,7 +106,7 @@ char Check_Grade(double totalScore) {
 
 int main() {
 
-    const int STUDENTS = 5;
+    const int NumberOfStudents = 5;
     // Constant value representing total number of students
 
 
@@ -114,7 +115,7 @@ int main() {
     // Purpose : Store names and TP numbers
     // ======================================================
 
-    string names[STUDENTS] = {
+    string StudentNames[NumberOfStudents] = {
         "Tan Chi Yong",
         "Lim Jie Jing",
         "Jason Leong",
@@ -123,7 +124,7 @@ int main() {
     };
     // Array storing the names of 5 students
 
-    string tps[STUDENTS] = {
+    string StudentTpNumbers[NumberOfStudents] = {
         "TP001234",
         "TP001235",
         "TP001236",
@@ -138,7 +139,7 @@ int main() {
     // Purpose : Store quiz, mid-term, and final exam scores
     // ======================================================
 
-    double marks[STUDENTS][3] = {
+    double StudentMarks[NumberOfStudents][3] = {
         {70, 88, 45},   // Student 1 raw scores
         {88, 66, 70},   // Student 2 raw scores
         {45, 55, 66},   // Student 3 raw scores
@@ -156,13 +157,13 @@ int main() {
     // Purpose : Convert raw marks into weighted marks
     // ======================================================
 
-    ChangeQuizScoreToPercentage(marks, STUDENTS);
+    ChangeQuizScoreToPercentage(StudentMarks, NumberOfStudents);
     // Convert quiz marks from 100 to 20%
 
-    ChangeMidTermScoreToPercentage(marks, STUDENTS);
+    ChangeMidTermScoreToPercentage(StudentMarks, NumberOfStudents);
     // Convert mid-term marks from 100 to 50%
 
-    ChangeFinalScoreToPercentage(marks, STUDENTS);
+    ChangeFinalScoreToPercentage(StudentMarks, NumberOfStudents);
     // Convert final exam marks from 100 to 30%
 
 
@@ -171,22 +172,22 @@ int main() {
     // Purpose : Prepare arrays and summary variables
     // ======================================================
 
-    double total[STUDENTS];
+    double TotalScores[NumberOfStudents];
     // Array to store each student's total marks out of 100
 
-    char grade[STUDENTS];
+    char StudentGrades[NumberOfStudents];
     // Array to store each student's grade letter
 
-    int indexHighest = 0;
+    int HighestScoreIndex = 0;
     // Assume first student has highest score at first
 
-    int indexLowest  = 0;
+    int LowestScoreIndex = 0;
     // Assume first student has lowest score at first
 
-    int countA = 0;
+    int GradeACount = 0;
     // Counter for number of students who get grade A
 
-    int countB = 0;
+    int GradeBCount = 0;
     // Counter for number of students who get grade B
 
 
@@ -195,31 +196,34 @@ int main() {
     // Purpose : Process each student's results
     // ======================================================
 
-    for (int i = 0; i < STUDENTS; i++) {
+    for (int StudentIndex = 0; StudentIndex < NumberOfStudents; StudentIndex++) {
         // Loop through each student
 
-        total[i] = marks[i][0] + marks[i][1] + marks[i][2];
+        TotalScores[StudentIndex] =
+            StudentMarks[StudentIndex][0] +
+            StudentMarks[StudentIndex][1] +
+            StudentMarks[StudentIndex][2];
         // Calculate the total weighted score
 
-        grade[i] = Check_Grade(total[i]);
+        StudentGrades[StudentIndex] = CheckGrade(TotalScores[StudentIndex]);
         // Determine grade based on total score
 
-        if (grade[i] == 'A') {
-            countA++;
+        if (StudentGrades[StudentIndex] == 'A') {
+            GradeACount++;
             // Increase A counter if student gets A
         } 
-        else if (grade[i] == 'B') {
-            countB++;
+        else if (StudentGrades[StudentIndex] == 'B') {
+            GradeBCount++;
             // Increase B counter if student gets B
         }
 
-        if (total[i] > total[indexHighest]) {
-            indexHighest = i;
+        if (TotalScores[StudentIndex] > TotalScores[HighestScoreIndex]) {
+            HighestScoreIndex = StudentIndex;
             // Update highest scoring student index
         }
 
-        if (total[i] < total[indexLowest]) {
-            indexLowest = i;
+        if (TotalScores[StudentIndex] < TotalScores[LowestScoreIndex]) {
+            LowestScoreIndex = StudentIndex;
             // Update lowest scoring student index
         }
     }
@@ -253,29 +257,29 @@ int main() {
     // Purpose : Print each student's processed results
     // ======================================================
 
-    for (int i = 0; i < STUDENTS; i++) {
+    for (int StudentIndex = 0; StudentIndex < NumberOfStudents; StudentIndex++) {
         // Loop through each student
 
         cout << left
-             << setw(15) << names[i]
+             << setw(15) << StudentNames[StudentIndex]
              // Print student name
 
-             << setw(10) << tps[i]
+             << setw(10) << StudentTpNumbers[StudentIndex]
              // Print TP number
 
-             << setw(12) << marks[i][0]
+             << setw(12) << StudentMarks[StudentIndex][0]
              // Print weighted quiz marks out of 20
 
-             << setw(14) << marks[i][1]
+             << setw(14) << StudentMarks[StudentIndex][1]
              // Print weighted mid-term marks out of 50
 
-             << setw(14) << marks[i][2]
+             << setw(14) << StudentMarks[StudentIndex][2]
              // Print weighted final exam marks out of 30
 
-             << setw(14) << total[i]
+             << setw(14) << TotalScores[StudentIndex]
              // Print total marks out of 100
 
-             << setw(8)  << grade[i]
+             << setw(8)  << StudentGrades[StudentIndex]
              // Print grade letter
 
              << endl;
@@ -290,20 +294,20 @@ int main() {
     // Purpose : Show highest, lowest, and grade counters
     // ======================================================
 
-    cout << "Highest scoring student: " << names[indexHighest]
-         << " (" << tps[indexHighest] << "), Total = "
-         << total[indexHighest] << ", Grade = " << grade[indexHighest] << endl;
+    cout << "Highest scoring student: " << StudentNames[HighestScoreIndex]
+         << " (" << StudentTpNumbers[HighestScoreIndex] << "), Total = "
+         << TotalScores[HighestScoreIndex] << ", Grade = " << StudentGrades[HighestScoreIndex] << endl;
     // Display highest scoring student summary
 
-    cout << "Lowest scoring student:  " << names[indexLowest]
-         << " (" << tps[indexLowest] << "), Total = "
-         << total[indexLowest] << ", Grade = " << grade[indexLowest] << endl;
+    cout << "Lowest scoring student:  " << StudentNames[LowestScoreIndex]
+         << " (" << StudentTpNumbers[LowestScoreIndex] << "), Total = "
+         << TotalScores[LowestScoreIndex] << ", Grade = " << StudentGrades[LowestScoreIndex] << endl;
     // Display lowest scoring student summary
 
-    cout << "Number of students with grade A: " << countA << endl;
+    cout << "Number of students with grade A: " << GradeACount << endl;
     // Display number of students who got grade A
 
-    cout << "Number of students with grade B: " << countB << endl;
+    cout << "Number of students with grade B: " << GradeBCount << endl;
     // Display number of students who got grade B
 
 
