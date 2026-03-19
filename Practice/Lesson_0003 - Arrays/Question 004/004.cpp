@@ -4,92 +4,182 @@
 //           and measure execution time
 // ==========================================================
 
-#include <iostream>   // For input and output (cout)
-#include <ctime>      // For measuring execution time
 
-#define size 10       // Define array size
+// ==========================================================
+// CATEGORY: Header Files / Libraries
+// ==========================================================
+
+#include <iostream>   // For input and output (cin, cout)
+#include <ctime>      // For measuring execution time using clock()
+
+
+// ==========================================================
+// CATEGORY: Constant Definition
+// ==========================================================
+
+#define ARRAY_SIZE 10
+// Define array size as 10 using a macro constant
+
 
 using namespace std;
 
 
 // ==========================================================
-// Function Prototype
+// CATEGORY: Function Prototype
+// Purpose : Declare recursive binary search function
 // ==========================================================
 
-int binary_search(int min, int max, int array[], int num);
-// Recursive function to perform binary search
+int RecursiveBinarySearch(int MinimumIndex, int MaximumIndex, int SortedArray[], int TargetNumber);
+// Recursive function used to perform binary search
 
 
 
 // ==========================================================
-// Main Function
+// CATEGORY: Main Function
+// Purpose : Program execution starts here
 // ==========================================================
 
 int main() {
 
-    int array[size] = {10,20,30,40,50,60,70,80,90,100};
-    // Sorted array required for binary search
+    // ======================================================
+    // CATEGORY: Array Initialization
+    // Purpose : Declare sorted array required for binary search
+    // ======================================================
 
-    int i, num;
+    int SortedArray[ARRAY_SIZE] = {10,20,30,40,50,60,70,80,90,100};
+    // Sorted array is required for binary search to work correctly
+
+
+    // ======================================================
+    // CATEGORY: Variable Declaration
+    // Purpose : Store user input and search result index
+    // ======================================================
+
+    int ResultIndex, TargetNumber;
+    // ResultIndex → stores the index returned by binary search
+    // TargetNumber → value entered by the user to search
+
+
+    // ======================================================
+    // CATEGORY: User Input
+    // ======================================================
 
     cout << "Recursive Binary Search\n";
+    // Display program title
+
     cout << "Enter number to search: ";
-    cin >> num;
+    // Prompt the user to enter a number
+
+    cin >> TargetNumber;
+    // Read the number entered by the user
 
 
-    // Start time measurement
-    clock_t start = clock();
 
-    i = binary_search(0, size - 1, array, num);
-    // Call recursive binary search
+    // ======================================================
+    // CATEGORY: Start Time Measurement
+    // ======================================================
 
-    clock_t end = clock();
+    clock_t StartTime = clock();
+    // Record starting time before the search begins
 
 
-    // Display search result
-    if (i >= 0)
-        cout << num << " is found at index " << i << endl;
+
+    // ======================================================
+    // CATEGORY: Recursive Binary Search Call
+    // ======================================================
+
+    ResultIndex = RecursiveBinarySearch(0, ARRAY_SIZE - 1, SortedArray, TargetNumber);
+    // Call recursive binary search function
+    // Search starts from index 0 to ARRAY_SIZE - 1
+
+
+
+    // ======================================================
+    // CATEGORY: Stop Time Measurement
+    // ======================================================
+
+    clock_t EndTime = clock();
+    // Record ending time after search completes
+
+
+
+    // ======================================================
+    // CATEGORY: Display Search Result
+    // ======================================================
+
+    if (ResultIndex >= 0)
+        cout << TargetNumber << " is found at index " << ResultIndex << endl;
+    // If index is 0 or greater, the value exists in the array
+
     else
-        cout << num << " is NOT found!" << endl;
+        cout << TargetNumber << " is NOT found!" << endl;
+    // If index is negative, the value does not exist
 
 
-    // Calculate execution time
-    double time_taken = double(end - start) / CLOCKS_PER_SEC * 1000;
+
+    // ======================================================
+    // CATEGORY: Execution Time Calculation
+    // ======================================================
+
+    double ExecutionTimeMilliseconds =
+        double(EndTime - StartTime) / CLOCKS_PER_SEC * 1000;
+    // Calculate the time difference between start and end
+    // Convert the time to milliseconds
+
 
     cout << "Time taken by recursive binary search: "
-         << time_taken << " milliseconds" << endl;
+         << ExecutionTimeMilliseconds << " milliseconds" << endl;
+    // Display execution time
+
+
+    // ======================================================
+    // CATEGORY: Program Termination
+    // ======================================================
 
     return 0;
+    // Return 0 indicates successful program execution
 }
 
 
 
 // ==========================================================
-// Recursive Binary Search Function
+// CATEGORY: Recursive Binary Search Function
+// Purpose : Recursively divide the array to locate the target
 // ==========================================================
 
-int binary_search(int min, int max, int array[], int num) {
+int RecursiveBinarySearch(int MinimumIndex, int MaximumIndex, int SortedArray[], int TargetNumber) {
 
-    int mid;
+    int MiddleIndex;
+    // Variable used to store the middle index of the search range
 
-    if (min <= max) {
 
-        mid = (min + max) / 2;
-        // Find middle index
+    // ======================================================
+    // CATEGORY: Search Condition Check
+    // Purpose : Continue searching while valid range exists
+    // ======================================================
 
-        if (num == array[mid])
-            return mid;
-        // If value found, return index
+    if (MinimumIndex <= MaximumIndex) {
 
-        else if (num < array[mid])
-            return binary_search(min, mid - 1, array, num);
-        // Search left half
+        MiddleIndex = (MinimumIndex + MaximumIndex) / 2;
+        // Calculate the middle index of the current range
+
+
+        if (TargetNumber == SortedArray[MiddleIndex])
+            return MiddleIndex;
+        // If the value matches the middle element, return the index
+
+
+        else if (TargetNumber < SortedArray[MiddleIndex])
+            return RecursiveBinarySearch(MinimumIndex, MiddleIndex - 1, SortedArray, TargetNumber);
+        // If target is smaller, search the left half
+
 
         else
-            return binary_search(mid + 1, max, array, num);
-        // Search right half
+            return RecursiveBinarySearch(MiddleIndex + 1, MaximumIndex, SortedArray, TargetNumber);
+        // If target is larger, search the right half
     }
 
+
     return -1;
-    // If not found, return -1
+    // If the search range becomes invalid, value is not found
 }
