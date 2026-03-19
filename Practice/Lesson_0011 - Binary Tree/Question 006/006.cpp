@@ -54,22 +54,34 @@ TreeNode* CreateNewNode(string NewCarId,
                         double NewCarPrice,
                         int NewCarAmount)
 {
-    TreeNode* NewNode = new TreeNode;
+    TreeNode* NewTreeNode = new TreeNode;
     // Dynamically create a new tree node
 
-    NewNode->CarId = NewCarId;
-    NewNode->CarBrand = NewCarBrand;
-    NewNode->CarType = NewCarType;
-    NewNode->CarColor = NewCarColor;
-    NewNode->CarPrice = NewCarPrice;
-    NewNode->CarAmount = NewCarAmount;
-    // Store all car information into the node
+    NewTreeNode->CarId = NewCarId;
+    // Store the given car ID in the node
 
-    NewNode->LeftChild = NULL;
-    NewNode->RightChild = NULL;
-    // Initialize left and right children as NULL
+    NewTreeNode->CarBrand = NewCarBrand;
+    // Store the given car brand in the node
 
-    return NewNode;
+    NewTreeNode->CarType = NewCarType;
+    // Store the given car type in the node
+
+    NewTreeNode->CarColor = NewCarColor;
+    // Store the given car color in the node
+
+    NewTreeNode->CarPrice = NewCarPrice;
+    // Store the given car price in the node
+
+    NewTreeNode->CarAmount = NewCarAmount;
+    // Store the given car amount in the node
+
+    NewTreeNode->LeftChild = NULL;
+    // Initialize left child as NULL
+
+    NewTreeNode->RightChild = NULL;
+    // Initialize right child as NULL
+
+    return NewTreeNode;
     // Return the new node
 }
 
@@ -207,19 +219,21 @@ int GetTreeHeight(TreeNode* RootNode)
         // Height is counted by number of edges
     }
 
-    int LeftHeight = GetTreeHeight(RootNode->LeftChild);
+    int LeftSubtreeHeight = GetTreeHeight(RootNode->LeftChild);
     // Get left subtree height
 
-    int RightHeight = GetTreeHeight(RootNode->RightChild);
+    int RightSubtreeHeight = GetTreeHeight(RootNode->RightChild);
     // Get right subtree height
 
-    if (LeftHeight > RightHeight)
+    if (LeftSubtreeHeight > RightSubtreeHeight)
     {
-        return LeftHeight + 1;
+        return LeftSubtreeHeight + 1;
+        // Return left subtree height if it is larger
     }
     else
     {
-        return RightHeight + 1;
+        return RightSubtreeHeight + 1;
+        // Return right subtree height if it is larger
     }
 }
 
