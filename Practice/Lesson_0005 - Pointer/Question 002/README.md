@@ -1,4 +1,8 @@
-# C++ program to create, initialize, and use a pointer variable. Execute the program and find its final output. 
+# Write a C++ program to read two numbers from the user and add them by using pointers. Your program output should display content similar to the output sample. 
+
+ - Given below are the variables and pointer variables:
+   - int num1, num2, sum;
+   - int *ptr1, *ptr2;  
 
 ```text
 Enter any two numbers: 5 10
