@@ -16,20 +16,20 @@ using namespace std;     // Allows use of cout, cin, endl without std::
 // Purpose : Tell the compiler these functions exist before main()
 // ==========================================================
 
-void generateRandomNumbers(int numbers[], int &count);
+void GenerateRandomNumbers(int RandomNumbers[], int &RandomNumberCount);
 // Ask user how many random numbers to generate and store them in the array
 
-void printRandomNumbers(int numbers[], int count);
+void PrintRandomNumbers(int RandomNumbers[], int RandomNumberCount);
 // Display all generated random numbers
 
-void countRanges(int numbers[], int count, int rangeCount[]);
+void CountRanges(int RandomNumbers[], int RandomNumberCount, int RangeCounts[]);
 // Count how many numbers fall into each range:
 // 1-10, 11-20, 21-30, 31-40, 41-50
 
-void printStarGraph(int rangeCount[]);
+void PrintStarGraph(int RangeCounts[]);
 // Print a star graph based on the counts in each range
 
-void printNumbers41To50(int numbers[], int count);
+void PrintNumbers41To50(int RandomNumbers[], int RandomNumberCount);
 // Print only the numbers between 41 and 50 for verification
 
 
@@ -41,13 +41,13 @@ void printNumbers41To50(int numbers[], int count);
 
 int main() {
 
-    const int MAX_SIZE = 100;
+    const int MaximumArraySize = 100;
     // Maximum number of random numbers allowed
 
-    int numbers[MAX_SIZE];
+    int RandomNumbers[MaximumArraySize];
     // Array to store generated random numbers
 
-    int count;
+    int RandomNumberCount;
     // Store how many random numbers the user wants
 
 
@@ -60,7 +60,7 @@ int main() {
     // CATEGORY: Generate Random Numbers
     // ======================================================
 
-    generateRandomNumbers(numbers, count);
+    GenerateRandomNumbers(RandomNumbers, RandomNumberCount);
     // Ask user for count and fill the array with random numbers
 
 
@@ -68,7 +68,7 @@ int main() {
     // CATEGORY: Display Generated Numbers
     // ======================================================
 
-    printRandomNumbers(numbers, count);
+    PrintRandomNumbers(RandomNumbers, RandomNumberCount);
     // Print all generated numbers
 
 
@@ -76,15 +76,15 @@ int main() {
     // CATEGORY: Count Numbers in Ranges
     // ======================================================
 
-    int rangeCount[5] = {0};
+    int RangeCounts[5] = {0};
     // Array to store count for each range
-    // rangeCount[0] = 1 to 10
-    // rangeCount[1] = 11 to 20
-    // rangeCount[2] = 21 to 30
-    // rangeCount[3] = 31 to 40
-    // rangeCount[4] = 41 to 50
+    // RangeCounts[0] = 1 to 10
+    // RangeCounts[1] = 11 to 20
+    // RangeCounts[2] = 21 to 30
+    // RangeCounts[3] = 31 to 40
+    // RangeCounts[4] = 41 to 50
 
-    countRanges(numbers, count, rangeCount);
+    CountRanges(RandomNumbers, RandomNumberCount, RangeCounts);
     // Count how many generated numbers fall into each range
 
 
@@ -92,7 +92,7 @@ int main() {
     // CATEGORY: Print Star Graph
     // ======================================================
 
-    printStarGraph(rangeCount);
+    PrintStarGraph(RangeCounts);
     // Display a star graph for the range counts
 
 
@@ -100,7 +100,7 @@ int main() {
     // CATEGORY: Verification Output
     // ======================================================
 
-    printNumbers41To50(numbers, count);
+    PrintNumbers41To50(RandomNumbers, RandomNumberCount);
     // Print numbers in the range 41 to 50 to verify the last graph row
 
 
@@ -120,33 +120,33 @@ int main() {
 //           from 1 to 50
 // ==========================================================
 
-void generateRandomNumbers(int numbers[], int &count) {
+void GenerateRandomNumbers(int RandomNumbers[], int &RandomNumberCount) {
 
-    const int MAX_SIZE = 100;
+    const int MaximumArraySize = 100;
     // Maximum limit for generated random numbers
 
     cout << "Enter how many random numbers you want to do an analysis? ";
     // Ask user for number of values to generate
 
-    cin >> count;
-    // Store user's input into count
+    cin >> RandomNumberCount;
+    // Store user's input into RandomNumberCount
 
 
-    while (count <= 0 || count > MAX_SIZE) {
+    while (RandomNumberCount <= 0 || RandomNumberCount > MaximumArraySize) {
         // Keep asking while input is invalid
 
-        cout << "Please enter a value between 1 and " << MAX_SIZE << ": ";
+        cout << "Please enter a value between 1 and " << MaximumArraySize << ": ";
         // Display validation message
 
-        cin >> count;
+        cin >> RandomNumberCount;
         // Read input again
     }
 
 
-    for (int i = 0; i < count; i++) {
-        // Loop from index 0 to count-1
+    for (int CurrentIndex = 0; CurrentIndex < RandomNumberCount; CurrentIndex++) {
+        // Loop from index 0 to RandomNumberCount - 1
 
-        numbers[i] = rand() % 50 + 1;
+        RandomNumbers[CurrentIndex] = rand() % 50 + 1;
         // Generate random number from 1 to 50
         // rand() % 50 produces values from 0 to 49
         // +1 changes range to 1 to 50
@@ -160,7 +160,7 @@ void generateRandomNumbers(int numbers[], int &count) {
 // Purpose : Display generated random numbers in rows
 // ==========================================================
 
-void printRandomNumbers(int numbers[], int count) {
+void PrintRandomNumbers(int RandomNumbers[], int RandomNumberCount) {
 
     cout << endl;
     // Print blank line before output
@@ -168,16 +168,16 @@ void printRandomNumbers(int numbers[], int count) {
     cout << "The random numbers (between 1 - 50) as below:" << endl << endl;
     // Display heading
 
-    const int PER_LINE = 10;
+    const int NumbersPerLine = 10;
     // Number of values to print in each line
 
-    for (int i = 0; i < count; i++) {
+    for (int CurrentIndex = 0; CurrentIndex < RandomNumberCount; CurrentIndex++) {
         // Loop through all generated numbers
 
-        cout << numbers[i] << "\t";
+        cout << RandomNumbers[CurrentIndex] << "\t";
         // Print current number followed by tab spacing
 
-        if ((i + 1) % PER_LINE == 0) {
+        if ((CurrentIndex + 1) % NumbersPerLine == 0) {
             // If 10 numbers have been printed in current row
 
             cout << endl;
@@ -196,32 +196,32 @@ void printRandomNumbers(int numbers[], int count) {
 // Purpose : Count how many numbers belong to each interval
 // ==========================================================
 
-void countRanges(int numbers[], int count, int rangeCount[]) {
+void CountRanges(int RandomNumbers[], int RandomNumberCount, int RangeCounts[]) {
 
-    for (int i = 0; i < count; i++) {
+    for (int CurrentIndex = 0; CurrentIndex < RandomNumberCount; CurrentIndex++) {
         // Check each generated number
 
-        int value = numbers[i];
+        int CurrentValue = RandomNumbers[CurrentIndex];
         // Store current value for easier reading
 
-        if (value >= 1 && value <= 10) {
-            rangeCount[0]++;
+        if (CurrentValue >= 1 && CurrentValue <= 10) {
+            RangeCounts[0]++;
             // Increase count for range 1 to 10
         }
-        else if (value >= 11 && value <= 20) {
-            rangeCount[1]++;
+        else if (CurrentValue >= 11 && CurrentValue <= 20) {
+            RangeCounts[1]++;
             // Increase count for range 11 to 20
         }
-        else if (value >= 21 && value <= 30) {
-            rangeCount[2]++;
+        else if (CurrentValue >= 21 && CurrentValue <= 30) {
+            RangeCounts[2]++;
             // Increase count for range 21 to 30
         }
-        else if (value >= 31 && value <= 40) {
-            rangeCount[3]++;
+        else if (CurrentValue >= 31 && CurrentValue <= 40) {
+            RangeCounts[3]++;
             // Increase count for range 31 to 40
         }
-        else if (value >= 41 && value <= 50) {
-            rangeCount[4]++;
+        else if (CurrentValue >= 41 && CurrentValue <= 50) {
+            RangeCounts[4]++;
             // Increase count for range 41 to 50
         }
     }
@@ -234,7 +234,7 @@ void countRanges(int numbers[], int count, int rangeCount[]) {
 // Purpose : Show a star graph for each number range
 // ==========================================================
 
-void printStarGraph(int rangeCount[]) {
+void PrintStarGraph(int RangeCounts[]) {
 
     cout << endl;
     // Print blank line before graph
@@ -249,7 +249,7 @@ void printStarGraph(int rangeCount[]) {
     cout << "  1 - 10 | ";
     // Print range label
 
-    for (int i = 0; i < rangeCount[0]; i++) {
+    for (int StarIndex = 0; StarIndex < RangeCounts[0]; StarIndex++) {
         cout << "* ";
         // Print one star for each number in range 1 to 10
     }
@@ -259,7 +259,7 @@ void printStarGraph(int rangeCount[]) {
     cout << " 11 - 20 | ";
     // Print range label
 
-    for (int i = 0; i < rangeCount[1]; i++) {
+    for (int StarIndex = 0; StarIndex < RangeCounts[1]; StarIndex++) {
         cout << "* ";
         // Print one star for each number in range 11 to 20
     }
@@ -269,7 +269,7 @@ void printStarGraph(int rangeCount[]) {
     cout << " 21 - 30 | ";
     // Print range label
 
-    for (int i = 0; i < rangeCount[2]; i++) {
+    for (int StarIndex = 0; StarIndex < RangeCounts[2]; StarIndex++) {
         cout << "* ";
         // Print one star for each number in range 21 to 30
     }
@@ -279,7 +279,7 @@ void printStarGraph(int rangeCount[]) {
     cout << " 31 - 40 | ";
     // Print range label
 
-    for (int i = 0; i < rangeCount[3]; i++) {
+    for (int StarIndex = 0; StarIndex < RangeCounts[3]; StarIndex++) {
         cout << "* ";
         // Print one star for each number in range 31 to 40
     }
@@ -289,7 +289,7 @@ void printStarGraph(int rangeCount[]) {
     cout << " 41 - 50 | ";
     // Print range label
 
-    for (int i = 0; i < rangeCount[4]; i++) {
+    for (int StarIndex = 0; StarIndex < RangeCounts[4]; StarIndex++) {
         cout << "* ";
         // Print one star for each number in range 41 to 50
     }
@@ -307,7 +307,7 @@ void printStarGraph(int rangeCount[]) {
 // Purpose : Display numbers in the last range for verification
 // ==========================================================
 
-void printNumbers41To50(int numbers[], int count) {
+void PrintNumbers41To50(int RandomNumbers[], int RandomNumberCount) {
 
     cout << endl;
     // Print blank line
@@ -318,24 +318,24 @@ void printNumbers41To50(int numbers[], int count) {
     cout << endl;
     // Print blank line
 
-    bool found = false;
+    bool IsValueFound = false;
     // Flag variable to check whether any values in 41-50 exist
 
-    for (int i = 0; i < count; i++) {
+    for (int CurrentIndex = 0; CurrentIndex < RandomNumberCount; CurrentIndex++) {
         // Loop through all generated numbers
 
-        if (numbers[i] >= 41 && numbers[i] <= 50) {
+        if (RandomNumbers[CurrentIndex] >= 41 && RandomNumbers[CurrentIndex] <= 50) {
             // Check whether current number falls into range 41 to 50
 
-            cout << numbers[i] << " ";
+            cout << RandomNumbers[CurrentIndex] << " ";
             // Print the number
 
-            found = true;
+            IsValueFound = true;
             // Mark that at least one valid number was found
         }
     }
 
-    if (!found) {
+    if (!IsValueFound) {
         // If no numbers in range 41 to 50 were found
 
         cout << "(none)";
