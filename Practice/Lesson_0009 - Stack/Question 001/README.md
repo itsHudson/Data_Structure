@@ -135,10 +135,6 @@ TP01
 
 ---
 
-# Final Answer in the Stack
-
-## From Base to Top
-TP01, TP04, TP05, TP02
-
-## From Top to Base
-TP02, TP05, TP04, TP01
+## Final Answer in the Stack
+ - From Base to Top: TP01, TP04, TP05, TP02
+ - From Top to Base: TP02, TP05, TP04, TP01
