@@ -22,3 +22,7 @@ The line of text is not a palindrome.
  - The queue stores the characters in the original order, while the stack stores them in reverse order because it follows the Last In First Out (LIFO) principle.
  - The program then compares the characters removed from the queue and stack one by one.
  - If all characters match, the text is a palindrome; otherwise, it is not a palindrome.
+  
+ - Queue → normal order
+ - Stack → reverse order
+ - if both match → palindrome
