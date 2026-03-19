@@ -1,5 +1,5 @@
 # 2.	Modify the program in Question 1 so that it can search for a value in the array. Calculate the execution time for each of the search algorithms.
-- Using the linear search algorithm
+- Using the Linear Search Algorithm
 
 ```text
 linear search: 10
