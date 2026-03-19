@@ -9,7 +9,6 @@
 //   cout → print output to the screen
 //   cin  → receive input from the keyboard
 
-
 using namespace std;
 // This allows us to use standard library objects directly.
 // Without this line we would need to write:
@@ -22,14 +21,14 @@ using namespace std;
 // Purpose : Reverse a string WITHOUT using built-in functions
 // ==========================================================
 
-string reverseString(string text)
-// Function name : reverseString
-// Parameter     : text (the string we want to reverse)
+string ReverseString(string InputText)
+// Function name : ReverseString
+// Parameter     : InputText (the string we want to reverse)
 // Return type   : string (the reversed string)
 {
 
-    string reversed = "";
-    // Create an empty string variable named "reversed".
+    string ReversedText = "";
+    // Create an empty string variable named "ReversedText".
     // We will build the reversed version of the original string here.
 
 
@@ -37,8 +36,8 @@ string reverseString(string text)
     // Loop through the string from the LAST character to FIRST
     // ----------------------------------------------------------
 
-    for (int i = text.length() - 1; i >= 0; i--)
-    // text.length() gives the number of characters in the string.
+    for (int CharacterIndex = InputText.length() - 1; CharacterIndex >= 0; CharacterIndex--)
+    // InputText.length() gives the number of characters in the string.
     // Example: "cat" → length = 3
     //
     // Index positions:
@@ -47,23 +46,23 @@ string reverseString(string text)
     //
     // So the last character index = length - 1.
     //
-    // i = text.length() - 1 → start from the last character
-    // i >= 0                → continue until the first character
-    // i--                   → move backwards one character each loop
+    // CharacterIndex = InputText.length() - 1 → start from the last character
+    // CharacterIndex >= 0                     → continue until the first character
+    // CharacterIndex--                        → move backwards one character each loop
     {
 
-        reversed += text[i];
-        // Add the character at position i into the "reversed" string.
+        ReversedText += InputText[CharacterIndex];
+        // Add the character at position CharacterIndex into the "ReversedText" string.
         //
         // Example:
-        // text = "cat"
+        // InputText = "cat"
         //
-        // i = 2 → text[2] = 't' → reversed = "t"
-        // i = 1 → text[1] = 'a' → reversed = "ta"
-        // i = 0 → text[0] = 'c' → reversed = "tac"
+        // CharacterIndex = 2 → InputText[2] = 't' → ReversedText = "t"
+        // CharacterIndex = 1 → InputText[1] = 'a' → ReversedText = "ta"
+        // CharacterIndex = 0 → InputText[0] = 'c' → ReversedText = "tac"
     }
 
-    return reversed;
+    return ReversedText;
     // After the loop finishes, return the reversed string
     // to wherever the function was called.
 }
@@ -76,21 +75,21 @@ string reverseString(string text)
 //           forward and backward
 // ==========================================================
 
-bool isPalindrome(string text)
-// Function name : isPalindrome
-// Parameter     : text (the string to check)
+bool IsPalindrome(string InputText)
+// Function name : IsPalindrome
+// Parameter     : InputText (the string to check)
 // Return type   : bool (true or false)
 {
 
-    string reversedText = reverseString(text);
-    // Call reverseString() to get the reversed version of the text.
+    string ReversedText = ReverseString(InputText);
+    // Call ReverseString() to get the reversed version of the text.
 
 
     // ----------------------------------------------------------
     // Compare original text with reversed text
     // ----------------------------------------------------------
 
-    if (text == reversedText)
+    if (InputText == ReversedText)
     // If both strings are identical
     {
         return true;
@@ -115,7 +114,7 @@ bool isPalindrome(string text)
 int main()
 {
 
-    string userInput;
+    string UserInputText;
     // Variable to store the string entered by the user
 
 
@@ -126,8 +125,8 @@ int main()
     cout << "Enter a string: ";
     // Ask the user to input a word
 
-    cin >> userInput;
-    // Store the user's input into the variable userInput
+    cin >> UserInputText;
+    // Store the user's input into the variable UserInputText
     //
     // Note:
     // cin >> only reads until the first space.
@@ -140,15 +139,15 @@ int main()
     // DISPLAY REVERSED STRING
     // ----------------------------------------------------------
 
-    cout << "Reversed string: " << reverseString(userInput) << endl;
-    // Call reverseString() and display the reversed text
+    cout << "Reversed string: " << ReverseString(UserInputText) << endl;
+    // Call ReverseString() and display the reversed text
 
 
     // ----------------------------------------------------------
     // CHECK IF PALINDROME
     // ----------------------------------------------------------
 
-    if (isPalindrome(userInput))
+    if (IsPalindrome(UserInputText))
     // Call the palindrome function
     {
         cout << "This string is a palindrome." << endl;
