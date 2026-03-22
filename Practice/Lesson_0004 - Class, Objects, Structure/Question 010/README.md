@@ -1,7 +1,7 @@
 # Once you have written the Employee class, write a separate program that creates three Employee objects with the following data and displays their details.
 
 ```text
-| Name   | ID Number | Department     | Salary  | Position         |
+| Name   | ID Number | Department     | Salary  | Position        |
 |--------|----------|----------------|---------|------------------|
 | Susan  | 47899    | Accounting     | 13500.00| Vice President   |
 | Matthew| 34522    | IT             | 6500.00 | Programmer       |
