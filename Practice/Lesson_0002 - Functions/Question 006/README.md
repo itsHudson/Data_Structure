@@ -6,9 +6,9 @@
 
 
 - Condition Set and Requirement:
-  - A:
-  - B:
-  - Final Decision:
+  - A: Must be legal earth dweller AND quiz score ≥ 50
+  - B: Must be handsome/beautiful AND quiz score ≥ 25
+  - Final Decision: Eligible if A OR B
  
 
 ```text
