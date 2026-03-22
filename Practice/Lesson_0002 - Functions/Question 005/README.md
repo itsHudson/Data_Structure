@@ -25,3 +25,9 @@
 # Question 5
 - **Write a statement that uses a conditional operator to set `ticket` to `1` if `speed` is greater than `55`, and to `0` otherwise.**
 - **Answer:** `ticket = (speed > 55) ? 1 : 0;`
+
+---
+
+# Question 6
+- **Write the full program from Question 1 to 6**
+- **Answer:** `005.cpp`
