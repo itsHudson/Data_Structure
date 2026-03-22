@@ -1,8 +1,8 @@
-# # Question 1
-**Write the C++ statement that assigns `1` to `x` if `y` is greater than `0`.**
-**Answer:** `if (y > 0) { x = 1; }`
+# Question 1
+- **Write the C++ statement that assigns `1` to `x` if `y` is greater than `0`.**
+- **Answer:** `if (y > 0) { x = 1; }`
 
-
+---
 
 # Question 2
 **Suppose that `score` is a variable of type `double`. Write the C++ statement that increases the score by 5 marks if `score` is between 80 and 90.**
