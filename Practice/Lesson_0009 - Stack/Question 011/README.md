@@ -67,7 +67,9 @@ After pushing these new coins, the final stack from **top to bottom** becomes:
 ---
 
 ## Final Output from Top to Bottom:
-
+```text
+Coins from top to bottom:
 10 cent, 10 cent, 50 cent, 20 cent, 50 cent, 50 cent, 20 cent, 10 cent, 10 cent, 20 cent, 50 cent
+```
 
 ---
