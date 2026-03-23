@@ -4,7 +4,11 @@
 
 
 ---
-
+## Answer: (Output)
+```text
+Initial List: Rose -> Tulip -> Lily -> NULL
+After Deletion: Rose -> Lily -> NULL
+```
 
 ## Answer: (Detailed Explanation)
 
