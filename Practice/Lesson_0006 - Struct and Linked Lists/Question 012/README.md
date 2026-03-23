@@ -21,146 +21,155 @@ To insert Janice before Corrida, we must:
 using namespace std;
 
 // ==========================================================
-// CATEGORY: Class Definition - Patient
-// Purpose : Represent a node in the linked list
+// CATEGORY: Patient Node Definition
+// Purpose : Define structure for linked list node
 // ==========================================================
-
-class Patient
+struct Patient
 {
-public:
     string name;
-    // Store patient name
-
     Patient* next;
-    // Pointer to next node
 
     Patient(string inputName)
     {
         name = inputName;
-        // Assign patient name
-
         next = NULL;
-        // Initialize next pointer as NULL
     }
 };
 
-int main()
+// ==========================================================
+// CATEGORY: Display Function
+// Purpose : Print the linked list
+// ==========================================================
+void displayList(Patient* head)
 {
-    // ==========================================================
-    // CATEGORY: Initial Linked List Setup
-    // Purpose : Create sample linked list
-    // ==========================================================
+    Patient* current = head;
 
-    Patient* head = new Patient("Ali");
-    // First node
-
-    head->next = new Patient("Brenda");
-    // Second node
-
-    head->next->next = new Patient("Corrida");
-    // Third node
-
-    // ==========================================================
-    // CATEGORY: Node Creation
-    // Purpose : Create a new node with value "Janice"
-    // ==========================================================
-
-    Patient* newNode = new Patient("Janice");
-    // Dynamically create a new Patient node with name "Janice"
-
-
-
-    /*
-        GOAL:
-        Insert "Janice" BEFORE the node with name "Corrida"
-
-        CASE 1: Corrida is the HEAD node
-        CASE 2: Corrida is somewhere in the middle
-    */
-
-
-
-    // ==========================================================
-    // CATEGORY: Special Case - Insert Before Head
-    // Purpose : Handle situation when Corrida is the first node
-    // ==========================================================
-
-    if (head != NULL && head->name == "Corrida")
+    while (current != NULL)
     {
-        newNode->next = head;
-        // New node points to current head (Corrida)
-
-        head = newNode;
-        // Update head → Janice becomes new first node
-    }
-
-
-
-    // ==========================================================
-    // CATEGORY: General Case - Insert Before Middle Node
-    // Purpose : Traverse list to find node BEFORE Corrida
-    // ==========================================================
-
-    else
-    {
-        Patient* current = head;
-        // Start traversal from the head node
-
-        // ======================================================
-        // CATEGORY: Traversal Loop
-        // Purpose : Move until the node BEFORE "Corrida"
-        // ======================================================
-
-        while (current != NULL && current->next != NULL && current->next->name != "Corrida")
+        cout << current->name;
+        if (current->next != NULL)
         {
-            current = current->next;
-            // Move to next node
+            cout << " -> ";
         }
-
-
-
-        // ======================================================
-        // CATEGORY: Insertion Logic
-        // Purpose : Insert Janice before Corrida
-        // ======================================================
-
-        if (current != NULL && current->next != NULL)
-        {
-            newNode->next = current->next;
-            // New node points to Corrida
-
-            current->next = newNode;
-            // Previous node now points to Janice
-        }
+        current = current->next;
     }
+    cout << endl;
+}
 
-    // ==========================================================
-    // CATEGORY: Display Linked List
-    // Purpose : Print the final linked list
-    // ==========================================================
+// ==========================================================
+// CATEGORY: Insert Function
+// Purpose : Insert "Janice" before "Corrida"
+// ==========================================================
+void insertBeforeCorrida(Patient*& head)
+{
 
-    Patient* temp = head;
-    // Start from head
+// ==========================================================
+// CATEGORY: Node Creation
+// Purpose : Create a new node with value "Janice"
+// ==========================================================
 
-    while (temp != NULL)
+Patient* newNode = new Patient("Janice");
+// Dynamically create a new Patient node with name "Janice"
+
+
+
+/*
+    GOAL:
+    Insert "Janice" BEFORE the node with name "Corrida"
+
+    CASE 1: Corrida is the HEAD node
+    CASE 2: Corrida is somewhere in the middle
+*/
+
+
+
+// ==========================================================
+// CATEGORY: Special Case - Insert Before Head
+// Purpose : Handle situation when Corrida is the first node
+// ==========================================================
+
+if (head != NULL && head->name == "Corrida")
+{
+    newNode->next = head;
+    // New node points to current head (Corrida)
+
+    head = newNode;
+    // Update head → Janice becomes new first node
+}
+
+
+
+// ==========================================================
+// CATEGORY: General Case - Insert Before Middle Node
+// Purpose : Traverse list to find node BEFORE Corrida
+// ==========================================================
+
+else
+{
+    Patient* current = head;
+    // Start traversal from the head node
+
+    // ======================================================
+    // CATEGORY: Traversal Loop
+    // Purpose : Move until the node BEFORE "Corrida"
+    // ======================================================
+
+    while (current != NULL && current->next != NULL && current->next->name != "Corrida")
     {
-        cout << temp->name << " -> ";
-        // Print current node
-
-        temp = temp->next;
+        current = current->next;
         // Move to next node
     }
 
-    cout << "NULL" << endl;
-    // End of list
+
+
+    // ======================================================
+    // CATEGORY: Insertion Logic
+    // Purpose : Insert Janice before Corrida
+    // ======================================================
+
+    if (current != NULL && current->next != NULL)
+    {
+        newNode->next = current->next;
+        // New node points to Corrida
+
+        current->next = newNode;
+        // Previous node now points to Janice
+    }
+    else
+    {
+        cout << "Corrida not found." << endl;
+        delete newNode;
+    }
+}
+
+}
+
+// ==========================================================
+// CATEGORY: Main Function
+// Purpose : Test the linked list
+// ==========================================================
+int main()
+{
+    Patient* head = new Patient("Alice");
+    head->next = new Patient("Brenda");
+    head->next->next = new Patient("Corrida");
+    head->next->next->next = new Patient("Diana");
+
+    cout << "Before insertion: ";
+    displayList(head);
+
+    insertBeforeCorrida(head);
+
+    cout << "After insertion: ";
+    displayList(head);
 
     return 0;
-    // End of program
 }
 ```
 
 
 ## Output
 ```text
-Ali -> Brenda -> Janice -> Corrida -> NULL
+Before insertion: Alice -> Brenda -> Corrida -> Diana
+After insertion: Alice -> Brenda -> Janice -> Corrida -> Diana
 ```
