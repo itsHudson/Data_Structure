@@ -1,5 +1,4 @@
-# Question 1:
-  - Explain the differences between static and dynamic allocation in memory.
+# Question 1: Explain the differences between static and dynamic allocation in memory.
 
   - Answer:
     ```
@@ -17,8 +16,7 @@
 ---
 
 
-## Question 2:
-Implement `void swap(int*, int*)` function.
+# Question 2: Implement `void swap(int*, int*)` function.
 
 ## Answer:
 
@@ -48,6 +46,13 @@ int main()
 }
 ```
 
+
 ---
 
+
+# Question 3: Write and run the "Pass by Reference (Using Reference Variable)" examples.
+
+## Answer:
+
+```cpp
 
