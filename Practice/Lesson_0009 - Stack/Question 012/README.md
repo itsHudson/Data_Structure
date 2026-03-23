@@ -1,5 +1,4 @@
-# Question 1:
-Provide one example of application using stack.
+# Question 1: Provide one example of an application using a stack.
 
 ## Answer:
 One common application of a stack is **expression evaluation and conversion**, such as converting an **infix expression to postfix expression**.
