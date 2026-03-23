@@ -209,3 +209,43 @@ public:
         // Indicate end of list
     }
 };
+
+
+
+// ==========================================================
+// CATEGORY: Main Function
+// Purpose : Entry point of the program
+// ==========================================================
+
+int main()
+{
+    FlowerLinkedList list;
+    // Create linked list object
+
+    // ======================================================
+    // Insert Sample Data
+    // ======================================================
+
+    list.insertAtEnd("Rose");
+    list.insertAtEnd("Tulip");
+    list.insertAtEnd("Lily");
+
+    cout << "Initial List: ";
+    list.display();
+
+
+
+    // ======================================================
+    // Remove Flower
+    // ======================================================
+
+    list.removeFlowerByName("Tulip");
+
+    cout << "After Deletion: ";
+    list.display();
+
+
+
+    return 0;
+    // End of program
+}
