@@ -6,7 +6,7 @@
 
 ---
 
-# Question 2: Briefly describe the algorithm of the above application in question 1.
+# Question 2: Briefly describe the algorithm of the above application in Question 1.
 
 ## Answer:
 
