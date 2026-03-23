@@ -109,3 +109,68 @@ int main()
     // End program
 }
 ```
+
+
+
+---
+
+
+# Question 4: Write and run the "Pass by Reference (Pass by Pointer)" examples.
+## Output:
+```text
+Original value: 5
+New value: 125
+```
+
+## Answer:
+```cpp
+// ==========================================================
+// CATEGORY: Header Library
+// Purpose : Enable input/output operations
+// ==========================================================
+
+#include <iostream>
+// Provides cout for output
+
+using namespace std;
+// Avoid std:: prefix
+
+
+
+// ==========================================================
+// CATEGORY: Function - Pass by Pointer
+// Purpose : Modify original variable using memory address
+// ==========================================================
+
+void CubeByPointer(int* numberPointer)
+{
+    // numberPointer stores the address of the variable
+
+    *numberPointer = (*numberPointer) * (*numberPointer) * (*numberPointer);
+    // Dereference pointer (*) to access and modify original value
+}
+
+
+
+// ==========================================================
+// CATEGORY: Main Function
+// Purpose : Entry point of the program
+// ==========================================================
+
+int main()
+{
+    int number = 5;
+    // Declare and initialize variable
+
+    cout << "Original value: " << number << endl;
+    // Display original value
+
+    CubeByPointer(&number);
+    // Pass address of variable using &
+
+    cout << "New value: " << number << endl;
+    // Value is changed → 5³ = 125
+
+    return 0;
+    // End program
+}
