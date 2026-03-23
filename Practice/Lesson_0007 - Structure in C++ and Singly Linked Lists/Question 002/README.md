@@ -1,109 +1,43 @@
-# Linked List Deletion: Question and Answer
-
-## Question:
-Create a function that can remove flower information from a linked list based on their flower name.  
-Give a detailed explanation of the time and space required to delete an item from a linked list.
+# Linked List Deletion
+    - Create a function that can remove flower information from a linked list based on the flower name.  
+    - Give a detailed explanation of the time and space required to delete an item from a linked list.
 
 ---
 
 ## Answer:
 
-### Function to Remove Flower by Name:
+### Time Complexity: Deleting an item from a linked list involves **two main steps**:
+1. **Searching for the node to delete**
+   - In a singly linked list, we must traverse from the head to find the target node.
+   - In the worst case, we may need to visit all nodes.
+   - If there are **n nodes**, this step takes **O(n)** time.
 
-```cpp
-#include <iostream>
-#include <string>
-using namespace std;
+2. **Deleting the node**
+   - Once the node (and its previous node) is found, deletion only requires:
+     - Updating the pointer (`previous->next = current->next`)
+     - Freeing memory (`delete current`)
+   - This step takes **O(1)** time.
 
-class FlowerNode
-{
-public:
-    string flowerName;
-    FlowerNode* next;
+✔ **Overall Time Complexity: O(n)**  
+✔ Best case (node at head): **O(1)**  
+✔ Worst case (node at end or not found): **O(n)**  
 
-    FlowerNode(string inputName)
-    {
-        flowerName = inputName;
-        next = NULL;
-    }
-};
+---
 
-class FlowerLinkedList
-{
-private:
-    FlowerNode* head;
+### Space Complexity:
 
-public:
-    FlowerLinkedList()
-    {
-        head = NULL;
-    }
+- Deleting a node does not require additional memory that grows with input size.
+- Only a few pointer variables (e.g., `current`, `previous`) are used.
+- No extra data structures are needed.
 
-    void insertAtEnd(string inputName)
-    {
-        FlowerNode* newNode = new FlowerNode(inputName);
+✔ **Space Complexity: O(1)** (constant space)
 
-        if (head == NULL)
-        {
-            head = newNode;
-        }
-        else
-        {
-            FlowerNode* current = head;
-            while (current->next != NULL)
-            {
-                current = current->next;
-            }
-            current->next = newNode;
-        }
-    }
+---
 
-    void removeFlowerByName(string targetFlowerName)
-    {
-        // Case 1: Empty list
-        if (head == NULL)
-        {
-            cout << "List is empty." << endl;
-            return;
-        }
+## Key Points:
 
-        // Case 2: Target is at head
-        if (head->flowerName == targetFlowerName)
-        {
-            FlowerNode* temp = head;
-            head = head->next;
-            delete temp;
-            return;
-        }
+- Traversal dominates the time complexity → **O(n)**
+- Actual deletion is very fast → **O(1)**
+- Memory usage is minimal → **O(1)**
+- If a pointer to the node is already given, deletion can be done in **O(1)** time without traversal.
 
-        // Case 3: Target is in middle or end
-        FlowerNode* current = head;
-
-        while (current->next != NULL && current->next->flowerName != targetFlowerName)
-        {
-            current = current->next;
-        }
-
-        if (current->next != NULL)
-        {
-            FlowerNode* temp = current->next;
-            current->next = temp->next;
-            delete temp;
-        }
-        else
-        {
-            cout << "Flower not found." << endl;
-        }
-    }
-
-    void display()
-    {
-        FlowerNode* current = head;
-        while (current != NULL)
-        {
-            cout << current->flowerName << " -> ";
-            current = current->next;
-        }
-        cout << "NULL" << endl;
-    }
-};
