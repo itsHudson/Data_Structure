@@ -75,7 +75,6 @@ Coins from top to bottom:
 ---
 
 
----
 
 ## Explanation: Why Stack is Used
 - A stack follows the LIFO rule: The last coin inserted will be the first coin removed.
