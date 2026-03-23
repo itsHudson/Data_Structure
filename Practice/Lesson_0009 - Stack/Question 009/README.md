@@ -24,4 +24,28 @@ Convert the infix expression **A + B * C - D / E** into postfix form and fill in
 
 ---
 
-## Final Postfix Expression:
+## Final Postfix Expression: ABC*+DE/-
+
+
+---
+
+## Explanation:
+- Operands (A, B, C, D, E) go directly to output.
+- Operators follow precedence:
+  - `*` and `/` have higher precedence than `+` and `-`
+- Use stack to temporarily hold operators.
+- When a lower precedence operator appears:
+  - Pop higher precedence operators from stack to output
+- At the end:
+  - Pop all remaining operators from the stack to output
+
+---
+
+## Key Rules:
+- Operand → Output directly  
+- Operator → Push to stack  
+- Higher precedence → Push  
+- Lower precedence → Pop first  
+- End → Empty the stack  
+
+---
