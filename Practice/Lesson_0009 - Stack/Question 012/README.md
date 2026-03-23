@@ -1,9 +1,8 @@
 # Question 1: Provide one example of an application using a stack.
 
 ## Answer:
-One common application of a stack is **expression evaluation and conversion**, such as converting an **infix expression to postfix expression**.
-
-Stacks are used to temporarily store operators and ensure the correct order of operations based on precedence.
+   - One common application of a stack is **expression evaluation and conversion**, such as converting an **infix expression to postfix expression**.
+   - Stacks are used to temporarily store operators and ensure the correct order of operations based on precedence.
 
 ---
 
@@ -12,7 +11,6 @@ Stacks are used to temporarily store operators and ensure the correct order of o
 ## Answer:
 
 ### Algorithm for Infix to Postfix Conversion:
-
 1. Initialize an empty stack and an empty output string.
 2. Scan the infix expression from left to right.
 3. If the character is an operand (A–Z or number):
@@ -32,9 +30,6 @@ Stacks are used to temporarily store operators and ensure the correct order of o
 ---
 
 ## Summary:
-
 - Stack application → Expression conversion (Infix → Postfix)
 - Stack ensures correct operator precedence
 - Uses push and pop operations to manage operators
-
----
