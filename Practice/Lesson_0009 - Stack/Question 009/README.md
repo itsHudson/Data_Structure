@@ -1,7 +1,6 @@
 # Infix to Postfix Conversion: Question and Answer
 
-## Question:
-Convert the infix expression **A + B * C - D / E** into postfix form and fill in the stack and output step-by-step.
+## Question: Convert the infix expression **A + B * C - D / E** into postfix form and fill in the stack and output step-by-step.
 
 ---
 
