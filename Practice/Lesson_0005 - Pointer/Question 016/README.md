@@ -17,11 +17,6 @@
 
 
 # Question 2: Implement `void swap(int*, int*)` function.
-## Output:
-```text
-Original value: 5
-New value: 125
-```
 
 ## Answer:
 ```cpp
@@ -55,6 +50,11 @@ int main()
 
 
 # Question 3: Write and run the "Pass by Reference (Using Reference Variable)" examples.
+## Output:
+```text
+Original value: 5
+New value: 125
+```
 
 ## Answer:
 ```cpp
