@@ -7,7 +7,7 @@
   - Also explain the destructor behavior.
 
 ```text
-Static Array:
+Static Array: 
 ==============================
 Enter Flower Name: Rose
 Enter Flower Color: Red
@@ -22,7 +22,7 @@ Flower Name: Tulip
 Flower Color: Pink
 
 
-Dynamic Array:
+Dynamic Array: 
 ==============================
 Enter Flower Name: Lily
 Enter Flower Color: White
@@ -36,5 +36,8 @@ Flower ID: 1
 Flower Name: Daisy
 Flower Color: Yellow
 
+
+Deleted: Flower - Daisy
+Deleted: Flower - Lily
 Deleted: Flower - Tulip
 Deleted: Flower - Rose
