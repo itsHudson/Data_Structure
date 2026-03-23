@@ -2,9 +2,11 @@
     - Create a function that can remove flower information from a linked list based on the flower name.  
     - Give a detailed explanation of the time and space required to delete an item from a linked list.
 
+
 ---
 
-## Answer:
+
+## Answer: (Detailed Explanation)
 
 ### Time Complexity: Deleting an item from a linked list involves **two main steps**:
 1. **Searching for the node to delete**
@@ -22,20 +24,22 @@
 ✔ Best case (node at head): **O(1)**  
 ✔ Worst case (node at end or not found): **O(n)**  
 
+
 ---
 
-### Space Complexity:
 
+### Space Complexity:
 - Deleting a node does not require additional memory that grows with input size.
 - Only a few pointer variables (e.g., `current`, `previous`) are used.
 - No extra data structures are needed.
 
 ✔ **Space Complexity: O(1)** (constant space)
 
+
 ---
 
-## Key Points:
 
+## Key Points:
 - Traversal dominates the time complexity → **O(n)**
 - Actual deletion is very fast → **O(1)**
 - Memory usage is minimal → **O(1)**
