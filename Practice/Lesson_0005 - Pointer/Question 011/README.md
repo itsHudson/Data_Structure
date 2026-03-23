@@ -37,6 +37,8 @@ f. *p = q;
 ❌ Invalid  
 Why: `*p` is an integer value, but `q` is a pointer (`int*`). Assigning a pointer to an integer is a type mismatch.
 
+---
+
 ## Summary:
 
 a → Valid  
