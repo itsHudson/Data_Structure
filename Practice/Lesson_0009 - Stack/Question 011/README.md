@@ -73,3 +73,19 @@ Coins from top to bottom:
 ```
 
 ---
+
+
+---
+
+## Explanation: Why Stack is Used
+- A stack follows the LIFO rule: The last coin inserted will be the first coin removed.
+
+- Array Implementation
+  - Uses an array to store the stack values.
+  - topIndex keeps track of the current top position.
+  - Easy and simple for fixed-size stacks.
+
+- Linked List Implementation
+  - Uses nodes connected by pointers.
+  - The top node represents the top of the stack.
+  - More flexible because it can grow dynamically.
