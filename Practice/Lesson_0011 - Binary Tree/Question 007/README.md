@@ -12,7 +12,7 @@
 
 ## 1. Which node is the root?
 **Answer:** 2
-The root is the top-most node in the tree.
+- The root is the top-most node in the tree.
 
 ---
 
