@@ -1,4 +1,4 @@
-# Write a C++ structure named Patient to contain the data shown in the figure.
+# Consider the tree and answer the questions below:
 
 <style>
   .resized-image {
@@ -6,18 +6,105 @@
     height: auto;
   }
 </style>
-<img src="https://github.com/itsHudson/Data_Structure/blob/main/Practice/Lesson_0006%20-%20Struct%20and%20Linked%20Lists/Question%20011/011.png" class="resized-image" alt="image">
+<img src="https://github.com/itsHudson/Data_Structure/blob/main/Practice/Lesson_0011%20-%20Binary%20Tree/Question%20007/007.png" class="resized-image" alt="image">
 
 ---
 
-## Answer:
-```cpp
-struct Patient {
-    string name;
-    char gender;
-    float height;
-    int age;
-    float weight;
-    Patient* next;
-};
-```
+## 1. Which node is the root?
+**Answer:** 2
+The root is the top-most node in the tree.
+
+---
+
+## 2. Which nodes are leaves?
+**Answer:**
+
+2, 1, 7, 2, 44, 8, 11, 55, 87
+
+
+Leaves are nodes that have no children.
+
+---
+
+## 3. Name the parent node (internal vertices)
+
+**Answer:**
+
+2, 9, 12, 99, 10
+
+
+These nodes have at least one child, so they are internal (parent) nodes.
+
+---
+
+## 4. List the children node of node 12
+
+**Answer:**
+
+1, 7, 2, 44
+
+
+These are the direct children connected below node 12.
+
+---
+
+## 5. List the siblings of node 8
+
+**Answer:**
+
+9, 12, 99, 10
+
+
+Siblings share the same parent (node 2).
+
+---
+
+## 6. Compute the depth of the tree
+
+**Answer:**
+
+2
+
+
+Depth is the number of edges from root to the deepest leaf.
+
+**Example path:**
+
+2 → 12 → 44 = 2 edges
+
+
+---
+
+## 7. Compute the height of node 55
+
+**Answer:**
+
+0
+
+
+Node 55 is a leaf, so its height is 0.
+
+---
+
+## 8. Evaluate the degree of node 12
+
+**Answer:**
+
+4
+
+
+Degree = number of children  
+Node 12 has 4 children.
+
+---
+
+## 9. Evaluate the degree of the tree
+
+**Answer:**
+
+4
+
+
+The degree of a tree is the maximum degree of any node.
+
+Node 12 has the highest degree (4), so the tree degree is 4.
