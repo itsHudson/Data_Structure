@@ -102,8 +102,7 @@ for (int k = 1; k <= 2; k++)
 
 ### Step 7: First Loop Iteration (k = 1)
 
-#### 7.1 dequeue()
-**Element removed = 1**
+#### 7.1 dequeue(): **Element removed = 1**
 
 | Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |-------|---|---|---|---|---|---|---|
@@ -117,8 +116,7 @@ for (int k = 1; k <= 2; k++)
 
 ---
 
-#### 7.2 enqueue(1)
-(New element goes to index 6)
+#### 7.2 enqueue(1): (New element goes to index 6)
 
 | Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |-------|---|---|---|---|---|---|---|
@@ -134,8 +132,7 @@ for (int k = 1; k <= 2; k++)
 
 ### Step 8: Second Loop Iteration (k = 2)
 
-#### 8.1 dequeue()
-**Element removed = 2**
+#### 8.1 dequeue(): **Element removed = 2**
 
 | Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |-------|---|---|---|---|---|---|---|
@@ -149,8 +146,7 @@ for (int k = 1; k <= 2; k++)
 
 ---
 
-#### 8.2 enqueue(2)
-(Rear wraps around to index 0)
+#### 8.2 enqueue(2): (Rear wraps around to index 0)
 
 | Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |-------|---|---|---|---|---|---|---|
