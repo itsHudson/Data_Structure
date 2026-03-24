@@ -162,8 +162,7 @@ for (int k = 1; k <= 2; k++)
 
 ## Final Results
 
-### Final Array Contents
-**[2, 2, 3, 4, 5, 6, 1]**
+### Final Array Contents: **[2, 2, 3, 4, 5, 6, 1]**
 
 | Index | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
 |-------|---|---|---|---|---|---|---|
