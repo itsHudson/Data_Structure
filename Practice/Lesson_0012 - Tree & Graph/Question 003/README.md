@@ -39,29 +39,30 @@ a, b, c, d, e, f, g
 ## 1. Vertices and Edges
 
 ### Vertices
-V = {a, b, c, d, e, f, g}
+`V = {a, b, c, d, e, f, g}`
 
 ### Edges
-E = {(a,b), (b,g), (a,c), (b,c), (g,c), (c,e), (e,f), (c,f), (c,d), (d,f), (g,d)}
+`E = {(a,b), (a,c), (b,a), (b,g), (c,a), (c,d), (c,e), (c,f), (c,g), (d,c), (d,f), (d,g), (e,c), (e,f), (f,c), (f,d), (f,e), (g,b), (g,c), (g,d)}`
 
 ---
 
 ## 2. Are b and c adjacent?
-
-- Yes, there is an edge between **b and c**
-
-**Answer: Yes**
+- There is **no direct edge** between `b` and `c` in the picture.
+- So they are **not adjacent**.
+**Answer: No**
 
 ---
 
 ## 3. Out-degree of vertex g
 
-Vertex g connects to:
-- b
-- c
-- d
+Vertex `g` is connected to:
+- `b`
+- `c`
+- `d`
 
-Total = **3**
+So the degree of `g` is **3**.
+
+Because the graph is undirected, the out-degree is also treated as **3** here.
 
 **Answer: 3**
 
@@ -69,12 +70,14 @@ Total = **3**
 
 ## 4. In-degree of vertex d
 
-Vertex d connects from:
-- c
-- g
-- f
+Vertex `d` is connected to:
+- `c`
+- `f`
+- `g`
 
-Total = **3**
+So the degree of `d` is **3**.
+
+Because the graph is undirected, the in-degree is also treated as **3** here.
 
 **Answer: 3**
 
@@ -82,41 +85,59 @@ Total = **3**
 
 ## 5. d⁺(f) (out-degree of f)
 
-Vertex f connects to:
-- e
-- c
-- d
+Vertex `f` is connected to:
+- `c`
+- `d`
+- `e`
 
-Total = **3**
+So:
 
-**Answer: 3**
+**d⁺(f) = 3**
 
 ---
 
 ## 6. d⁻(b) (in-degree of b)
 
-Vertex b connects from:
-- a
-- g
+Vertex `b` is connected to:
+- `a`
+- `g`
 
-Total = **2**
+So:
 
-**Answer: 2**
+**d⁻(b) = 2**
 
 ---
 
 ## 7. Example of a Simple Path
 
-a → c → e → f
+One correct simple path is:
 
-(No repeated vertices)
+`a, c, g, b`
+
+This is a simple path because:
+- `a` connects to `c`
+- `c` connects to `g`
+- `g` connects to `b`
+- no vertex is repeated
+
+**Answer: a, c, g, b**
 
 ---
 
 ## 8. Example of a Cycle Path
 
-c → d → f → c
+One correct cycle path is:
 
-(Start and end at same vertex)
+`a, c, g, b, a`
+
+This is a cycle because:
+- `a` connects to `c`
+- `c` connects to `g`
+- `g` connects to `b`
+- `b` connects back to `a`
+
+It starts and ends at the same vertex.
+
+**Answer: a, c, g, b, a**
 
 ---
