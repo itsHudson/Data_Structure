@@ -43,7 +43,6 @@
 ## 6. Compute the depth of the tree
 **Answer:** 2
 - Depth is the number of edges from root to the deepest leaf.
-- **Example path:** 2 → 12 → 44 = 2 edges
 
 
 ---
