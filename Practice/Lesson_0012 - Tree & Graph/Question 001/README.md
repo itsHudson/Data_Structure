@@ -11,6 +11,7 @@
 ---
 
 # Step 1: Construct Binary Search Tree
+```text
             Guava
            /     \
       Banana     Watermelon
@@ -22,7 +23,7 @@
                       Strawberry
                        /
                  Pineapple
-
+```
 
 ---
 
