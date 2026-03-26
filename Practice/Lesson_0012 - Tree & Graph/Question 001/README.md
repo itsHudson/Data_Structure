@@ -46,12 +46,12 @@ Banana → Guava → Watermelon → Mango → Orange → Strawberry → Pineappl
 
 ## 2. Height of the Tree
 
-### Longest Path:
+### Longest path:
 Guava → Watermelon → Mango → Orange → Strawberry → Pineapple  
 
-- Total edges = **5**
+Number of levels = **6**
 
-**Answer: 5**
+**Answer: 6**
 
 ---
 
