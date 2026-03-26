@@ -1,4 +1,4 @@
-# Question 13: Graph Analysis
+# Graph Analysis
 - Consider the graph and answer the following:
   1. List the **vertices and edges**.  
   2. Are vertices **b and c adjacent**?  
