@@ -7,7 +7,7 @@
     height: auto;
   }
 </style>
-<img src="https://github.com/itsHudson/Data_Structure/blob/main/Practice/Lesson_0011%20-%20Binary%20Tree/Question%20008/008.png" class="resized-image" alt="image">
+<img src="https://github.com/itsHudson/Data_Structure/blob/main/Practice/Lesson_0011%20-%20Binary%20Tree/Question%20009/009.png" class="resized-image" alt="image">
 ---
 
 
