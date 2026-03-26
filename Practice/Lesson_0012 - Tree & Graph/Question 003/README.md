@@ -39,10 +39,10 @@ a, b, c, d, e, f, g
 ## 1. Vertices and Edges
 
 ### Vertices
-{a, b, c, d, e, f, g}
+V = {a, b, c, d, e, f, g}
 
 ### Edges
-{(a,b), (b,g), (a,c), (b,c), (g,c), (c,e), (e,f), (c,f), (c,d), (d,f), (g,d)}
+E = {(a,b), (b,g), (a,c), (b,c), (g,c), (c,e), (e,f), (c,f), (c,d), (d,f), (g,d)}
 
 ---
 
