@@ -41,6 +41,15 @@ Banana → Guava → Watermelon → Mango → Orange → Strawberry → Pineappl
 - Total edges = **6**
 
 **Answer: 6**
+```text
+Count the levels
+  Level 1 = Guava
+  Level 2 = Watermelon
+  Level 3 = Mango
+  Level 4 = Orange
+  Level 5 = Strawberry
+  Level 6 = Pineapple
+```
 
 ---
 
