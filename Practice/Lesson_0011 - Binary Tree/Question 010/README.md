@@ -37,4 +37,51 @@
 
 ## 4. Determine Height of Binary Tree
 
-### Formula:
+### Formula: height = max(height_of_left_subtree, height_of_right_subtree) + 1
+
+
+### Steps:
+1. If node is NULL → height = 0
+2. Recursively find left height
+3. Recursively find right height
+4. Take maximum + 1
+
+---
+
+## 5. Tree Traversal Methods
+
+### Pre-order (Root → Left → Right)
+- Visit root first
+- Then left subtree
+- Then right subtree
+
+---
+
+### In-order (Left → Root → Right)
+- Visit left subtree
+- Then root
+- Then right subtree
+
+---
+
+### Post-order (Left → Right → Root)
+- Visit left subtree
+- Visit right subtree
+- Visit root last
+
+---
+
+## 6. When Tree is better than Hash Table
+
+- When data must be **sorted**
+- When you need **range queries**
+- When you need **ordered traversal**
+- When you need **min/max quickly**
+- When handling **hierarchical data**
+
+### Hash Table is NOT good for:
+- Ordered data
+- Range queries
+- Traversal in sequence
+
+---
