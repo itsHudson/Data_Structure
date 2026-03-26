@@ -1,5 +1,16 @@
 # Binary Tree Concepts
 
+## Question
+1. In what scenarios would you use a binary tree instead of a doubly linked list?  
+2. How would you convert a binary tree into a doubly linked list?  
+3. Can you detail the steps to perform an in-order traversal in a binary tree?  
+4. How would you determine the height of a binary tree?  
+5. Can you explain preorder, inorder, and postorder tree traversal methods?  
+6. In what instances would a tree data structure be more beneficial than a hash table?  
+
+---
+
+# Answer
 ## 1. When to use a Binary Tree instead of a Doubly Linked List
 - When you need **fast searching** (O(log n) in balanced tree)
 - When data must be **sorted automatically**
