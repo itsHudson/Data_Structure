@@ -11,6 +11,10 @@
 ---
 
 # Step 1: Construct Binary Search Tree
+- For a BST:
+  - smaller word goes to the left
+  - bigger word goes to the right
+
 ```text
             Guava
            /     \
