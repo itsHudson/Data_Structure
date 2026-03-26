@@ -42,13 +42,13 @@ Banana → Guava → Watermelon → Mango → Orange → Strawberry → Pineappl
 
 **Answer: 6**
 ```text
-Count the levels
-  Level 1 = Guava
-  Level 2 = Watermelon
-  Level 3 = Mango
-  Level 4 = Orange
-  Level 5 = Strawberry
-  Level 6 = Pineapple
+Count the edges
+  Banana → Guava = 1
+  Guava → Watermelon = 2
+  Watermelon → Mango = 3
+  Mango → Orange = 4
+  Orange → Strawberry = 5
+  Strawberry → Pineapple = 6
 ```
 
 ---
@@ -61,6 +61,15 @@ Guava → Watermelon → Mango → Orange → Strawberry → Pineapple
 Number of levels = **6**
 
 **Answer: 6**
+```text
+Count the levels
+  Level 1 = Guava
+  Level 2 = Watermelon
+  Level 3 = Mango
+  Level 4 = Orange
+  Level 5 = Strawberry
+  Level 6 = Pineapple
+```
 
 ---
 
