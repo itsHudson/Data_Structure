@@ -16,7 +16,7 @@
     height: auto;
   }
 </style>
-<img src="https://github.com/itsHudson/Data_Structure/blob/main/Practice/Lesson_0012%20-%20Tree%20%26%20Graph/Question%20003/003.png" class="resized-image" alt="image">
+<img src="https://github.com/itsHudson/Data_Structure/blob/main/Practice/Lesson_0012%20-%20Tree%20%26%20Graph/Question%20002/002.png" class="resized-image" alt="image">
 
 
 ---
