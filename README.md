@@ -218,4 +218,3 @@ Actively seeking internship opportunities in:
 *◈ HUDSON LAB · DATA ANALYTICS · SYSTEMS ◈*
 
 </div>
-```
